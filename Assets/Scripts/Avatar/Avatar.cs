@@ -2,17 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Avatar : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public class Avatar : MonoBehaviour {
+  public float vitesseMax;
+  public GameObject ControlerListenerGO;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  private Rigidbody2D rig;
+
+  // Start is called before the first frame update
+  void Start() {
+    rig = GetComponent<Rigidbody2D>();
+
+    //enregistrer les fonctions de déplacement et d'action sur le Controler Listener
+    ControlerListener controlerListener = ControlerListenerGO.GetComponent<ControlerListener>();
+    controlerListener.OnInputAxis += Deplacements;
+    controlerListener.OnIntputAction += Action;
+
+  }
+
+  // Update is called once per frame
+  void Update() {
+    
+  }
+
+  void Deplacements(float x, float y) {
+    rig.velocity = new Vector2(x * vitesseMax, y * vitesseMax);
+  }
+
+  void Action() {
+    
+  }
 }
