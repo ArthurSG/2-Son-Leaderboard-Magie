@@ -29,10 +29,10 @@ public class Avatar : MonoBehaviour {
   }
 
   void Interaction() {
-    print("oui");
+    print("Interaction");
   }
 
   void Teleportation() {
-    print("non");
+    print("Téléportation");
   }
 }
