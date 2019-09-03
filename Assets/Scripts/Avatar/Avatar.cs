@@ -5,18 +5,14 @@ using UnityEngine;
 public class Avatar : MonoBehaviour {
   public float vitesseMax;
 
-  private Rigidbody2D rig;
+
+  private float aimX, aimY;
+  private Rigidbody2D rigid;
 
   // Start is called before the first frame update
   void Start() {
-    rig = GetComponent<Rigidbody2D>();
-
-    //enregistrer les fonctions de déplacement et d'action sur le Controler Listener
-    ControllerListener controllerListener = GetComponent<ControllerListener>();
-    controllerListener.OnInputAxis += Deplacements;
-    controllerListener.OnIntputActionPrimaire += Teleportation;
-    controllerListener.OnIntputActionSecondaire += Interaction;
-
+    FetchComponents();
+    SetControls();
   }
 
   // Update is called once per frame
@@ -25,7 +21,12 @@ public class Avatar : MonoBehaviour {
   }
 
   void Deplacements(float x, float y) {
-    rig.velocity = new Vector2(x * vitesseMax, y * vitesseMax);
+    rigid.velocity = new Vector2(x * vitesseMax, y * vitesseMax);
+  }
+
+  void Aim(float x, float y) {
+    aimX = x;
+    aimY = y;
   }
 
   void Interaction() {
@@ -34,5 +35,17 @@ public class Avatar : MonoBehaviour {
 
   void Teleportation() {
     print("Téléportation");
+    GetComponent<Teleportation>().Teleport(aimX, aimY);
+  }
+
+  void FetchComponents() {
+    rigid = GetComponent<Rigidbody2D>();
+  }
+
+  void SetControls() {
+    PlayerController.instance.OnPrimaryAxis += Deplacements;
+    PlayerController.instance.OnSecondaryAxis += Aim;
+    PlayerController.instance.OnPrimaryAction += Teleportation;
+    PlayerController.instance.OnSecondaryAction += Interaction;
   }
 }
