@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Avatar : MonoBehaviour {
   public float vitesseMax;
-  public GameObject ControlerListenerGO;
 
   private Rigidbody2D rig;
 
@@ -13,9 +12,10 @@ public class Avatar : MonoBehaviour {
     rig = GetComponent<Rigidbody2D>();
 
     //enregistrer les fonctions de déplacement et d'action sur le Controler Listener
-    ControlerListener controlerListener = ControlerListenerGO.GetComponent<ControlerListener>();
-    controlerListener.OnInputAxis += Deplacements;
-    controlerListener.OnIntputAction += Action;
+    ControllerListener controllerListener = GetComponent<ControllerListener>();
+    controllerListener.OnInputAxis += Deplacements;
+    controllerListener.OnIntputActionPrimaire += Teleportation;
+    controllerListener.OnIntputActionSecondaire += Interaction;
 
   }
 
@@ -28,7 +28,11 @@ public class Avatar : MonoBehaviour {
     rig.velocity = new Vector2(x * vitesseMax, y * vitesseMax);
   }
 
-  void Action() {
-    
+  void Interaction() {
+    print("oui");
+  }
+
+  void Teleportation() {
+    print("non");
   }
 }
