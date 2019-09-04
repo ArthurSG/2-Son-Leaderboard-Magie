@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class GamepadListener : MonoBehaviour {
 
+
+
+
+
+
   // Update is called once per frame
   void Update() {
-    if(Input.GetButtonDown("PrimaryAction"))
+    if(Input.GetButtonDown("PrimaryActionGamepad"))
       PlayerController.instance.PrimaryAction();
 
-    if (Input.GetButtonDown("SecondaryAction"))
+    if (Input.GetButtonDown("SecondaryActionGamepad"))
       PlayerController.instance.SecondaryAction();
 
     HandlePrimaryAxis();

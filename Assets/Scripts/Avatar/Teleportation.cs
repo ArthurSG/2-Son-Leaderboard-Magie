@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Teleportation : MonoBehaviour {
 
-  public static float TeleportDuration = 3f;
+  public float TeleportDuration = 3f;
   public int nombreDeTeleportation;
   public float distanceDeTeleportation;
 
@@ -30,16 +30,25 @@ public class Teleportation : MonoBehaviour {
 
       // lancer l'anim
       // direction
-      // print("start" + transform.position);
-      print(aimX + " " + aimY);
+
       transform.position = FindTeleportPosition(aimX, aimY);
-      // print("end " + transform.position);
 
       foreach (Timer t in timers)
         t.Pause();
       timers.Add(new Timer(TeleportDuration, Rappel));
       timers[timers.Count -1].Play();
     }
+  }
+
+  private Vector3 FindTeleportPosition(float aimX, float aimY) {
+    Vector3 position;
+    Vector2 direction = new Vector2(aimX, aimY).normalized;
+    position = new Vector3(
+        transform.position.x + direction.x * distanceDeTeleportation,
+        transform.position.y + direction.y * distanceDeTeleportation,
+        transform.position.z);
+
+    return position;
   }
 
   private void Rappel(){
@@ -50,18 +59,5 @@ public class Teleportation : MonoBehaviour {
     timers.RemoveAt(timers.Count - 1);
     if (timers.Count > 0)
       timers[timers.Count - 1].Play();
-  }
-
-  private Vector3 FindTeleportPosition (float aimX, float aimY) {
-    Vector3 position;
-    Vector2 direction = new Vector2(aimX, aimY).normalized;
-    // get secondary axis
-    // si null => get primary axis
-    position = new Vector3(
-        transform.position.x + direction.x * distanceDeTeleportation,
-        transform.position.y + direction.y * distanceDeTeleportation,
-        transform.position.z);
-
-    return position;
   }
 }
