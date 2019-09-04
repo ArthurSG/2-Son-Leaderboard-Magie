@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
   public event ActionFunction OnPrimaryAction;
   public event ActionFunction OnSecondaryAction;
 
-  void Start() {
+  void Awake() {
     SetStaticInstance();
   }
 

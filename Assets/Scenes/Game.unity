@@ -249,6 +249,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af57aa1e76cac5145ac2d7e65cd9150c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nombreDeTeleportation: 2
+  distanceDeTeleportation: 2
 --- !u!1 &502428804
 GameObject:
   m_ObjectHideFlags: 0
