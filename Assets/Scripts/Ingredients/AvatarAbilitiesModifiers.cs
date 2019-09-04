@@ -19,7 +19,7 @@ public class AvatarAbilitiesModifiers : MonoBehaviour{
 
 
   void Start(){
-    Avatar = GameManager.Avatar;
+    Avatar = GameManager.instance.avatar.gameObject;
 
     abilitiesModifiers.Add(canMove);
     abilitiesModifiers.Add(canRelease);
