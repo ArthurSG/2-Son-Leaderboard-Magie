@@ -34,7 +34,6 @@ public class Avatar : MonoBehaviour {
   }
 
   void Teleportation() {
-    print("Téléportation");
     GetComponent<Teleportation>().Teleport(aimX, aimY);
   }
 
@@ -43,8 +42,8 @@ public class Avatar : MonoBehaviour {
   }
 
   void SetControls() {
-    PlayerController.instance.OnPrimaryAxis += Deplacements;
     PlayerController.instance.OnSecondaryAxis += Aim;
+    PlayerController.instance.OnPrimaryAxis += Deplacements;
     PlayerController.instance.OnPrimaryAction += Teleportation;
     PlayerController.instance.OnSecondaryAction += Interaction;
   }

@@ -18,13 +18,13 @@ public class PlayerController : MonoBehaviour
   public event ActionFunction OnPrimaryAction;
   public event ActionFunction OnSecondaryAction;
 
-  void Start() {
+  void Awake() {
     SetStaticInstance();
   }
 
   void Update() {
     HandlePrimaryAxis();
-    HandleSecondaryAxis();
+    HandleSecondaryAxis(); 
   }
 
   void HandlePrimaryAxis() {
@@ -37,8 +37,7 @@ public class PlayerController : MonoBehaviour
   void HandleSecondaryAxis() {
     if (OnSecondaryAxis != null)
       OnSecondaryAxis(secondaryAxisX, secondaryAxisY);
-    secondaryAxisX = 0f;
-    secondaryAxisY = 0f;
+
   }
 
   public void SetPrimaryAxis(float x, float y) {
@@ -47,8 +46,10 @@ public class PlayerController : MonoBehaviour
   }
 
   public void SetSecondaryAxis(float x, float y) {
-    secondaryAxisX = x;
-    secondaryAxisY = y;
+    if (x != 0 || y != 0) {
+      secondaryAxisX = x;
+      secondaryAxisY = y;
+    }
   }
 
   public void PrimaryAction() {
