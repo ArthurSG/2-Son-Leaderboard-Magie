@@ -30,9 +30,9 @@ public class GamepadListener : MonoBehaviour {
   }
 
   void HandleSecondaryAxis() {
-    float x = Input.GetAxis("SecondaryAxisX");
-    float y = Input.GetAxis("SecondaryAxisY");
-    if(!(x == 0 && y == 0))
+    float x = Input.GetAxis("SecondaryAxisXGamepad");
+    float y = Input.GetAxis("SecondaryAxisYGamepad");
+    if(Mathf.Abs(x) >= 0.5 || Mathf.Abs(y) >= 0.5)
       PlayerController.instance.SetSecondaryAxis(x, y);
   }
 }

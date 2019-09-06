@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KeyboardListener : MonoBehaviour {
   private Camera camera;
+  private Vector3 oldDirection;
 
   private void Start() {
     camera = GameManager.instance.camera;
@@ -30,9 +31,16 @@ public class KeyboardListener : MonoBehaviour {
   }
 
   void HandleSecondaryAxis() {
-    float x = camera.ScreenToWorldPoint(Input.mousePosition).x - GameManager.instance.avatar.transform.position.x;
-    float y = camera.ScreenToWorldPoint(Input.mousePosition).y - GameManager.instance.avatar.transform.position.y;
-    if (Input.GetAxis("SecondaryAxisX") != 0 || Input.GetAxis("SecondaryAxisY") != 0)
-      PlayerController.instance.SetSecondaryAxis(x, y);
+    Vector3 mousePosition = camera.ScreenToWorldPoint(Input.mousePosition) - GameManager.instance.avatar.transform.position;
+    if (mousePosition != oldDirection) {
+      PlayerController.instance.SetSecondaryAxis(mousePosition.x, mousePosition.y);
+      oldDirection = mousePosition;
+    }
+  }
+
+  public void ResetSecondaryAxis() {
+    // print("oui");
+    Vector3 mousePosition = camera.ScreenToWorldPoint(Input.mousePosition) - GameManager.instance.avatar.transform.position;
+    PlayerController.instance.SetSecondaryAxis(mousePosition.x, mousePosition.y);
   }
 }
