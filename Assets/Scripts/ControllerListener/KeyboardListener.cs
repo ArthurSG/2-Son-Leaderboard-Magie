@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class KeyboardListener : MonoBehaviour {
-  private Camera camera;
+  private Camera cam;
   private Vector3 oldDirection;
 
   private void Start() {
-    camera = GameManager.instance.camera;
+    cam = Camera.main;
   }
 
   // Update is called once per frame
@@ -31,7 +31,7 @@ public class KeyboardListener : MonoBehaviour {
   }
 
   void HandleSecondaryAxis() {
-    Vector3 mousePosition = camera.ScreenToWorldPoint(Input.mousePosition) - GameManager.instance.avatar.transform.position;
+    Vector3 mousePosition = cam.ScreenToWorldPoint(Input.mousePosition) - GameManager.instance.avatar.transform.position;
     if (mousePosition != oldDirection) {
       PlayerController.instance.SetSecondaryAxis(mousePosition.x, mousePosition.y);
       oldDirection = mousePosition;
@@ -40,7 +40,7 @@ public class KeyboardListener : MonoBehaviour {
 
   public void ResetSecondaryAxis() {
     // print("oui");
-    Vector3 mousePosition = camera.ScreenToWorldPoint(Input.mousePosition) - GameManager.instance.avatar.transform.position;
+    Vector3 mousePosition = cam.ScreenToWorldPoint(Input.mousePosition) - GameManager.instance.avatar.transform.position;
     PlayerController.instance.SetSecondaryAxis(mousePosition.x, mousePosition.y);
   }
 }

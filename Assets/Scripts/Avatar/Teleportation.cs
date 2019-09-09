@@ -19,7 +19,7 @@ public class Teleportation : MonoBehaviour {
 
   // Update is called once per frame
   void Update() {
-
+    print(positionsSaved.Count);
   }
 
   public void Teleport(float aimX, float aimY) {
@@ -28,14 +28,11 @@ public class Teleportation : MonoBehaviour {
       print("Téléportation");
       positionsSaved.Add(transform.position);
 
-      // lancer l'anim
-      // direction
-
       transform.position = FindTeleportPosition(aimX, aimY);
 
       foreach (Timer t in timers)
         t.Pause();
-      timers.Add(new Timer(TeleportDuration, Rappel));
+      timers.Add(new Timer(TeleportDuration, GetComponent<Avatar>().AnimationRappel));
       timers[timers.Count -1].Play();
     }
   }
@@ -51,9 +48,8 @@ public class Teleportation : MonoBehaviour {
     return position;
   }
 
-  private void Rappel(){
-    // anim de rappel
-
+  public void Rappel(){
+    print("oui");
     transform.position = positionsSaved[positionsSaved.Count -1];
     positionsSaved.RemoveAt(positionsSaved.Count - 1);
     timers.RemoveAt(timers.Count - 1);
