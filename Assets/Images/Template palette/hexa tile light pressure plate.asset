@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: hexa tile template
+  m_Name: hexa tile light pressure plate
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 0e251700d3c16b6b5b662094ebfb507f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5978f096d8c22582bb880ed2ecc89649, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
