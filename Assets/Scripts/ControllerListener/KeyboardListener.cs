@@ -31,16 +31,16 @@ public class KeyboardListener : MonoBehaviour {
   }
 
   void HandleSecondaryAxis() {
-    Vector3 mousePosition = cam.ScreenToWorldPoint(Input.mousePosition) - GameManager.instance.avatar.transform.position;
-    if (mousePosition != oldDirection) {
-      PlayerController.instance.SetSecondaryAxis(mousePosition.x, mousePosition.y);
-      oldDirection = mousePosition;
+    Vector3 MouseDirection = cam.ScreenToWorldPoint(Input.mousePosition) - GameManager.instance.avatar.transform.position;
+    if (MouseDirection != oldDirection) {
+      PlayerController.instance.SetSecondaryAxis(MouseDirection.x, MouseDirection.y);
+      oldDirection = MouseDirection;
     }
   }
 
   public void ResetSecondaryAxis() {
     // print("oui");
-    Vector3 mousePosition = cam.ScreenToWorldPoint(Input.mousePosition) - GameManager.instance.avatar.transform.position;
-    PlayerController.instance.SetSecondaryAxis(mousePosition.x, mousePosition.y);
+    Vector3 MouseDirection = cam.ScreenToWorldPoint(Input.mousePosition) - GameManager.instance.avatar.transform.position;
+    PlayerController.instance.SetSecondaryAxis(MouseDirection.x, MouseDirection.y);
   }
 }
