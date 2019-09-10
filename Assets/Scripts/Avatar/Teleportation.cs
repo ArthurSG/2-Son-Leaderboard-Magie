@@ -19,7 +19,7 @@ public class Teleportation : MonoBehaviour {
 
   // Update is called once per frame
   void Update() {
-    print(positionsSaved.Count);
+
   }
 
   public void Teleport(float aimX, float aimY) {
@@ -49,7 +49,6 @@ public class Teleportation : MonoBehaviour {
   }
 
   public void Rappel(){
-    print("oui");
     transform.position = positionsSaved[positionsSaved.Count -1];
     positionsSaved.RemoveAt(positionsSaved.Count - 1);
     timers.RemoveAt(timers.Count - 1);
