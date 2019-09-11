@@ -32,7 +32,7 @@ public class Teleportation : MonoBehaviour {
       SetNewApneaTimer();
     }
     else { //Can Cancel the Apnea Time and Rappel before the apneaTimer End();
-      ApneaCancel ();
+      ApneaReset ();
     }
   }
 
@@ -70,12 +70,12 @@ public class Teleportation : MonoBehaviour {
     apneaTimers[apneaTimers.Count -1].Play();
   }
 
-  public void ApneaCancel (){
+  public void ApneaReset (){
     avatarClass.AnimationRappel();
     apneaTimers[apneaTimers.Count -1].Reset();
   }
 
-  public void ApneaReset (){
+  public void ApneaResetPlay (){
     apneaTimers[apneaTimers.Count -1].ResetPlay();
   }
 }
