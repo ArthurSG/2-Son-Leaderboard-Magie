@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 7395984813276136649}
   - component: {fileID: 240291423}
   - component: {fileID: 240291418}
+  - component: {fileID: 240291424}
+  - component: {fileID: 240291425}
+  - component: {fileID: 240291426}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -60,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeControllerIndex: 0
-  numberOfControllers: 2
+  numberOfListener: 2
 --- !u!114 &7395984813276136649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,10 +99,55 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7395984813276136644}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15be3cbddf66e994984adb2e63779c02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   controllerIndex: 2
   controllerName: GamepadTactic
+--- !u!114 &240291424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7395984813276136644}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81034cf6bc6814741af06b773ee1a942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerIndex: 3
+  controllerName: GamepadOneHandLeft
+--- !u!114 &240291425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7395984813276136644}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5942e27add322ac45b78166ca222d4bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerIndex: 4
+  controllerName: GamepadOneHandRight
+--- !u!114 &240291426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7395984813276136644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7848a78254430564ca8c5070fa95c7fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ControllerListeners:
+  - {fileID: 240291423}
+  - {fileID: 240291418}
+  - {fileID: 240291424}
+  - {fileID: 240291425}
