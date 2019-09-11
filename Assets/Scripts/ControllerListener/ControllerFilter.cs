@@ -6,7 +6,7 @@ public class ControllerFilter : MonoBehaviour
 {
 
 	public int activeControllerIndex = 0;
-	public int numberOfControllers = 2;
+	public int numberOfListener = 2;
   
   void Start()
   {
@@ -38,6 +38,7 @@ public class ControllerFilter : MonoBehaviour
     	PlayerController.instance.SecondaryAction();
     	SetActiveController (controllerIndex);
   }
+  
 
   void SetActiveController (int controllerIndex){
   	if (controllerIndex != activeControllerIndex)

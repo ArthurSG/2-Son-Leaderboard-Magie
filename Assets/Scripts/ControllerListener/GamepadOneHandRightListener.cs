@@ -9,17 +9,25 @@ public class GamepadOneHandRightListener : MonoBehaviour {
   public int controllerIndex = 5;
   public string controllerName = "GamepadOneHandRight";
 
+  private float triggersDeadZone = 0.5f;
+  private bool isTriggerPressed;
+
   void Start (){
     controllerFilter = GetComponent<ControllerFilter>();
   }
 
   // Update is called once per frame
   void Update() {
+  	print (Input.GetAxis("RightTrigger"));
     if(Input.GetButtonDown("RightBumper")){
       controllerFilter.CallPrimaryAction(controllerIndex);
     }
-    if (Input.GetButtonDown("SecondaryActionGamepadOneHandRight")){
+    if (-Input.GetAxis("RightTrigger") > triggersDeadZone && !isTriggerPressed){
+      isTriggerPressed = true;
       controllerFilter.CallSecondaryAction(controllerIndex);
+    }
+    else if (-Input.GetAxis("RightTrigger") <= triggersDeadZone && isTriggerPressed){
+      isTriggerPressed = false;
     }
 
     HandlePrimaryAxis();
