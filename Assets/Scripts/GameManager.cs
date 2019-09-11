@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
   public Avatar avatar;
   public Camera camera;
 
-  private void Start() {
+  private void Awake() {
     if (instance != null)
       print("/!\\ Two instances of GameManager.");
     instance = this;

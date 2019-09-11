@@ -31,9 +31,8 @@ public class Teleportation : MonoBehaviour {
 
       SetNewApneaTimer();
     }
-    else {
-    	avatarClass.AnimationRappel();
-    	apneaTimers[apneaTimers.Count -1].Reset();
+    else { //Can Cancel the Apnea Time and Rappel before the apneaTimer End();
+      ApneaCancel ();
     }
   }
 
@@ -61,5 +60,22 @@ public class Teleportation : MonoBehaviour {
     apneaTimers.RemoveAt(apneaTimers.Count - 1);
     if (apneaTimers.Count > 0)
       apneaTimers[apneaTimers.Count - 1].Play();
+  }
+
+  public void ApneaPause (){
+    apneaTimers[apneaTimers.Count -1].Pause();
+  }
+
+  public void ApneaPlay (){
+    apneaTimers[apneaTimers.Count -1].Play();
+  }
+
+  public void ApneaCancel (){
+    avatarClass.AnimationRappel();
+    apneaTimers[apneaTimers.Count -1].Reset();
+  }
+
+  public void ApneaReset (){
+    apneaTimers[apneaTimers.Count -1].ResetPlay();
   }
 }
