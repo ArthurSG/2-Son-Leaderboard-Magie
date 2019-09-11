@@ -15,10 +15,14 @@ public class GamepadTacticListener : MonoBehaviour {
 
   // Update is called once per frame
   void Update() {
-    if(Input.GetButtonDown("PrimaryActionGamepad"))
+    if(Input.GetButtonDown("PrimaryActionGamepadTactic")){
+    	print ("primaryAction");
       controllerFilter.CallPrimaryAction(controllerIndex);
-    if (Input.GetButtonDown("SecondaryActionGamepad"))
+    }
+    if (Input.GetButtonDown("SecondaryActionGamepadTactic")){
+    	print ("secondaryAction");
       controllerFilter.CallSecondaryAction(controllerIndex);
+    }
 
     HandlePrimaryAxis();
     HandleSecondaryAxis();
