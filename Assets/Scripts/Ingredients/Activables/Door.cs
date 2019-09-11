@@ -13,7 +13,7 @@ public class Door : Activable {
 
   // Update is called once per frame
   void Update() {
-    print(nombreSourcesRequise);
+    //print(nombreSourcesRequise);
   }
 
   protected override void SetEtat() {
