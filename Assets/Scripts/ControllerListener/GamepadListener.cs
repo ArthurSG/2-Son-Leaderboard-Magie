@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class GamepadListener : MonoBehaviour {
 
+  private ControllerFilter controllerFilter;
 
+  public int controllerIndex = 0;
+  public string controllerName = "Gamepad";
 
-
-
+  void Start (){
+    controllerFilter = GetComponent<ControllerFilter>();
+  }
 
   // Update is called once per frame
   void Update() {
     if(Input.GetButtonDown("PrimaryActionGamepad"))
-      PlayerController.instance.PrimaryAction();
-
+      controllerFilter.CallPrimaryAction(controllerIndex);
     if (Input.GetButtonDown("SecondaryActionGamepad"))
-      PlayerController.instance.SecondaryAction();
+      controllerFilter.CallSecondaryAction(controllerIndex);
 
     HandlePrimaryAxis();
     HandleSecondaryAxis();
@@ -23,16 +26,18 @@ public class GamepadListener : MonoBehaviour {
   }
 
   void HandlePrimaryAxis() {
-    float x = Input.GetAxis("PrimaryAxisX");
-    float y = Input.GetAxis("PrimaryAxisY");
-    if(!(x == 0 && y == 0))
-      PlayerController.instance.SetPrimaryAxis(x,y);
+    float x = Input.GetAxis("PrimaryAxisXGamepad");
+    float y = Input.GetAxis("PrimaryAxisYGamepad");
+
+    if(!(x == 0 && y == 0)){
+      controllerFilter.CallSetPrimaryAxis(controllerIndex,x,y);
+    }
   }
 
   void HandleSecondaryAxis() {
     float x = Input.GetAxis("SecondaryAxisXGamepad");
     float y = Input.GetAxis("SecondaryAxisYGamepad");
     if(Mathf.Abs(x) >= 0.5 || Mathf.Abs(y) >= 0.5)
-      PlayerController.instance.SetSecondaryAxis(x, y);
+      controllerFilter.CallSetSecondaryAxis(controllerIndex,x,y);
   }
 }

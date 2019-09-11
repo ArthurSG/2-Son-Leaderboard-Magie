@@ -4,19 +4,30 @@ using UnityEngine;
 
 public class KeyboardListener : MonoBehaviour {
   private Camera cam;
-  private Vector3 oldDirection;
+
+  private Vector3 MouseDirection;
+  private Vector3 oldMouseDirection;
+
+  private ControllerFilter controllerFilter;
+  public int controllerIndex = 1;
+  public string controllerName = "Keyboard";
 
   private void Start() {
     cam = Camera.main;
+
+    controllerFilter = GetComponent<ControllerFilter>();
   }
 
-  // Update is called once per frame
-  void Update() {
-    if(Input.GetButtonDown("PrimaryActionKeyboard"))
-      PlayerController.instance.PrimaryAction();
 
-    if (Input.GetButtonDown("SecondaryActionKeyboard"))
-      PlayerController.instance.SecondaryAction();
+  void Update() {
+    if(Input.GetButtonDown("PrimaryActionKeyboard")){
+      print ("mark");
+      controllerFilter.CallPrimaryAction(controllerIndex);
+    }
+    if (Input.GetButtonDown("SecondaryActionKeyboard")){
+      print ("mark2");
+      controllerFilter.CallSecondaryAction(controllerIndex);     
+    }
 
     HandlePrimaryAxis();
     HandleSecondaryAxis();
@@ -24,30 +35,30 @@ public class KeyboardListener : MonoBehaviour {
   }
 
   void HandlePrimaryAxis() {
-    float x = Input.GetAxis("PrimaryAxisX");
+    float x = Input.GetAxis("PrimaryAxisX");  
     float y = Input.GetAxis("PrimaryAxisY");
-    if (!(x == 0 && y == 0))
-      PlayerController.instance.SetPrimaryAxis(x, y);
+    if (!(x == 0 && y == 0)){
+      controllerFilter.CallSetPrimaryAxis(controllerIndex,x,y);
+    }
   }
 
   void HandleSecondaryAxis() {
-    Vector3 MouseDirection = cam.ScreenToWorldPoint(Input.mousePosition) - GameManager.instance.avatar.transform.position;
-
-    if (Input.GetAxis("SecondaryAxisXMouse") != 0f || Input.GetAxis("SecondaryAxisYMouse") != 0f)
-    {
-      print (Input.mousePosition);
-      PlayerController.instance.SetSecondaryAxis(MouseDirection.x, MouseDirection.y);
+    MouseDirection = cam.ScreenToWorldPoint(Input.mousePosition) - GameManager.instance.avatar.transform.position;
+    ResetMouseDirection();
+    if (Input.GetAxis("SecondaryAxisXMouse") != 0f || Input.GetAxis("SecondaryAxisYMouse") != 0f){
+      controllerFilter.CallSetSecondaryAxis(controllerIndex, MouseDirection.x, MouseDirection.y);
     }
-    /*
-    if (MouseDirection != oldDirection) {
-      PlayerController.instance.SetSecondaryAxis(MouseDirection.x, MouseDirection.y);
-      oldDirection = MouseDirection;
-    }*/
   }
-/*
+
+  void ResetMouseDirection (){
+    if (MouseDirection != oldMouseDirection) {
+      ResetSecondaryAxis();
+      oldMouseDirection = MouseDirection;
+    }
+  }
+
   public void ResetSecondaryAxis() {
-    // print("oui");
     Vector3 MouseDirection = cam.ScreenToWorldPoint(Input.mousePosition) - GameManager.instance.avatar.transform.position;
-    PlayerController.instance.SetSecondaryAxis(MouseDirection.x, MouseDirection.y);
-  }*/
+    controllerFilter.CallSetSecondaryAxis(controllerIndex, MouseDirection.x, MouseDirection.y);
+  }
 }
