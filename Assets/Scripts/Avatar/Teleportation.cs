@@ -8,6 +8,8 @@ public class Teleportation : MonoBehaviour {
   public int numberOfConsecutiveTeleportation;
   public float teleportationMaximumDistance;
 
+  private Avatar avatarClass;
+
   private List<Vector3> positionsSaved;
   private List<Timer> apneaTimers;
 
@@ -15,24 +17,27 @@ public class Teleportation : MonoBehaviour {
   void Start() {
     positionsSaved = new List<Vector3>();
     apneaTimers = new List<Timer>();
+
+    avatarClass = GetComponent<Avatar>();
   }
+
 
   public void Teleport(float aimX, float aimY) {
 
-    if (positionsSaved.Count - 1 < numberOfConsecutiveTeleportation) {
-      print("Téléportation");
+    if (positionsSaved.Count < numberOfConsecutiveTeleportation) {
+      print(positionsSaved.Count);
       positionsSaved.Add(transform.position);
 
       transform.position = FindTeleportPosition(aimX, aimY);
 
-      newApneaTimer();
+      SetNewApneaTimer();
     }
   }
 
-  private void newApneaTimer (){
+  private void SetNewApneaTimer (){
   	foreach (Timer t in apneaTimers)
       t.Pause();
-    apneaTimers.Add(new Timer(apneaDuration, GetComponent<Avatar>().AnimationRappel));
+    apneaTimers.Add(new Timer(apneaDuration, avatarClass.AnimationRappel));
     apneaTimers[apneaTimers.Count -1].Play();
   }
 
