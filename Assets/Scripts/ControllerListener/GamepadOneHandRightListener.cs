@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GamepadTacticListener : MonoBehaviour {
+public class GamepadOneHandRightListener : MonoBehaviour {
 
   private ControllerFilter controllerFilter;
 
-  public int controllerIndex = 3;
-  public string controllerName = "GamepadTactic";
+  public int controllerIndex = 5;
+  public string controllerName = "GamepadOneHandRight";
 
   void Start (){
     controllerFilter = GetComponent<ControllerFilter>();
@@ -18,7 +18,7 @@ public class GamepadTacticListener : MonoBehaviour {
     if(Input.GetButtonDown("RightBumper")){
       controllerFilter.CallPrimaryAction(controllerIndex);
     }
-    if (Input.GetButtonDown("LeftBumper")){
+    if (Input.GetButtonDown("SecondaryActionGamepadOneHandRight")){
       controllerFilter.CallSecondaryAction(controllerIndex);
     }
 
@@ -28,8 +28,8 @@ public class GamepadTacticListener : MonoBehaviour {
   }
 
   void HandlePrimaryAxis() {
-    float x = Input.GetAxis("LeftStickXAxis");
-    float y = Input.GetAxis("LeftStickYAxis");
+    float x = Input.GetAxis("RightStickXAxis");
+    float y = Input.GetAxis("RightStickYAxis");
 
     if(!(x == 0 && y == 0)){
       controllerFilter.CallSetPrimaryAxis(controllerIndex,x,y);

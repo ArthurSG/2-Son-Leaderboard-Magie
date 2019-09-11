@@ -15,9 +15,9 @@ public class GamepadBasicListener : MonoBehaviour {
 
   // Update is called once per frame
   void Update() {
-    if(Input.GetButtonDown("PrimaryActionGamepad"))
+    if(Input.GetButtonDown("ButtonA"))
       controllerFilter.CallPrimaryAction(controllerIndex);
-    if (Input.GetButtonDown("SecondaryActionGamepad"))
+    if (Input.GetButtonDown("ButtonB"))
       controllerFilter.CallSecondaryAction(controllerIndex);
 
     HandlePrimaryAxis();
@@ -26,8 +26,8 @@ public class GamepadBasicListener : MonoBehaviour {
   }
 
   void HandlePrimaryAxis() {
-    float x = Input.GetAxis("PrimaryAxisXGamepad");
-    float y = Input.GetAxis("PrimaryAxisYGamepad");
+    float x = Input.GetAxis("LeftStickXAxis");
+    float y = Input.GetAxis("LeftStickYAxis");
 
     if(!(x == 0 && y == 0)){
       controllerFilter.CallSetPrimaryAxis(controllerIndex,x,y);
@@ -35,8 +35,8 @@ public class GamepadBasicListener : MonoBehaviour {
   }
 
   void HandleSecondaryAxis() {
-    float x = Input.GetAxis("PrimaryAxisXGamepad");
-    float y = Input.GetAxis("PrimaryAxisYGamepad");
+    float x = Input.GetAxis("LeftStickXAxis");
+    float y = Input.GetAxis("LeftStickYAxis");
     if(Mathf.Abs(x) >= 0.5 || Mathf.Abs(y) >= 0.5)
       controllerFilter.CallSetSecondaryAxis(controllerIndex,x,y);
   }

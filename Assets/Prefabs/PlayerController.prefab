@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7395984813276136650}
   - component: {fileID: 7395984813276136651}
-  - component: {fileID: 7395984813276136648}
+  - component: {fileID: 240291422}
   - component: {fileID: 7395984813276136649}
+  - component: {fileID: 240291423}
+  - component: {fileID: 240291418}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -45,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba23bbc8776aa8848a1b7a03984e8b07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7395984813276136648
+--- !u!114 &240291422
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,11 +56,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7395984813276136644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32a3cc5c37c16444f9fe145634b65ad7, type: 3}
+  m_Script: {fileID: 11500000, guid: a8ba8ec4fae5fee48a89f1114b7d4622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerIndex: 0
-  controllerName: Gamepad
+  activeControllerIndex: 0
+  numberOfControllers: 2
 --- !u!114 &7395984813276136649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,5 +73,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79092d2f9e901141ab664afba45b5a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerIndex: 1
+  controllerIndex: 0
   controllerName: Keyboard
+--- !u!114 &240291423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7395984813276136644}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32a3cc5c37c16444f9fe145634b65ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerIndex: 1
+  controllerName: Gamepad
+--- !u!114 &240291418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7395984813276136644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15be3cbddf66e994984adb2e63779c02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerIndex: 2
+  controllerName: GamepadTactic
