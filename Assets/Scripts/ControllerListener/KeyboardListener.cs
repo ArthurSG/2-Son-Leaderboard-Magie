@@ -21,11 +21,9 @@ public class KeyboardListener : MonoBehaviour {
 
   void Update() {
     if(Input.GetButtonDown("PrimaryActionKeyboard")){
-      print ("mark");
       controllerFilter.CallPrimaryAction(controllerIndex);
     }
     if (Input.GetButtonDown("SecondaryActionKeyboard")){
-      print ("mark2");
       controllerFilter.CallSecondaryAction(controllerIndex);     
     }
 

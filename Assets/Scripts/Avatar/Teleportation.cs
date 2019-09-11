@@ -25,12 +25,15 @@ public class Teleportation : MonoBehaviour {
   public void Teleport(float aimX, float aimY) {
 
     if (positionsSaved.Count < numberOfConsecutiveTeleportation) {
-      print(positionsSaved.Count);
       positionsSaved.Add(transform.position);
 
       transform.position = FindTeleportPosition(aimX, aimY);
 
       SetNewApneaTimer();
+    }
+    else {
+    	avatarClass.AnimationRappel();
+    	apneaTimers[apneaTimers.Count -1].Reset();
     }
   }
 
