@@ -138,7 +138,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7395984814498443891}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &240291422
+--- !u!114 &240291424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240291417}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81034cf6bc6814741af06b773ee1a942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerIndex: 4
+  controllerName: GamepadOneHandLeft
+--- !u!114 &240291425
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,11 +161,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 240291417}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8ba8ec4fae5fee48a89f1114b7d4622, type: 3}
+  m_Script: {fileID: 11500000, guid: 5942e27add322ac45b78166ca222d4bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeControllerIndex: 0
-  numberOfControllers: 2
+  controllerIndex: 5
+  controllerName: GamepadOneHandRight
 --- !u!1001 &265394972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2477,10 +2491,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7395984813276136648, guid: ab6dd7fe578b3244c87dd817ce1727fd,
-        type: 3}
+    - target: {fileID: 240291418, guid: ab6dd7fe578b3244c87dd817ce1727fd, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab6dd7fe578b3244c87dd817ce1727fd, type: 3}
