@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GamepadListener : MonoBehaviour {
+public class GamepadTacticListener : MonoBehaviour {
 
   private ControllerFilter controllerFilter;
 
-  public int controllerIndex = 0;
-  public string controllerName = "Gamepad";
+  public int controllerIndex = 3;
+  public string controllerName = "GamepadTactic";
 
   void Start (){
     controllerFilter = GetComponent<ControllerFilter>();
@@ -35,8 +35,8 @@ public class GamepadListener : MonoBehaviour {
   }
 
   void HandleSecondaryAxis() {
-    float x = Input.GetAxis("SecondaryAxisXGamepad");
-    float y = Input.GetAxis("SecondaryAxisYGamepad");
+    float x = Input.GetAxis("SecondaryAxisXGamepadTactic");
+    float y = Input.GetAxis("SecondaryAxisYGamepadTactic");
     if(Mathf.Abs(x) >= 0.5 || Mathf.Abs(y) >= 0.5)
       controllerFilter.CallSetSecondaryAxis(controllerIndex,x,y);
   }
