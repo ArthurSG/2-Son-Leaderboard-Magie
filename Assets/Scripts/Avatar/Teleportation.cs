@@ -22,7 +22,6 @@ public class Teleportation : MonoBehaviour {
   }
 
   void Update (){
-
   }
 
 
@@ -43,9 +42,10 @@ public class Teleportation : MonoBehaviour {
   private void SetNewApneaTimer (){
   	foreach (Timer t in apneaTimers){
       t.Pause();
-      apneaTimers.Add(new Timer(apneaDuration, avatarClass.AnimationRappel));
-      apneaTimers[apneaTimers.Count -1].Play();
     }
+    apneaTimers.Add(new Timer(apneaDuration, avatarClass.AnimationRappel));
+    apneaTimers[apneaTimers.Count -1].Play();
+    
   }
 
   private Vector3 FindTeleportPosition(float aimX, float aimY) {
@@ -85,31 +85,11 @@ public class Teleportation : MonoBehaviour {
   }
 
   public void ApneaCancel (){
-
-    apneaTimers.Clear();
-    positionsSaved.Clear();
-    /*foreach (Timer t in apneaTimers){
-      //t.Pause ();
-      apneaTimers.Remove(t);
-
+    print (apneaTimers.Count);
+    if (apneaTimers.Count > 0){
+      apneaTimers[apneaTimers.Count -1].Pause();
+      apneaTimers.Clear();
     }
-    //print("non");
-    foreach (Vector3 p in positionsSaved){
-      //print("oui");
-      positionsSaved.Remove(p);
-    }*/
-    /*
-    if (positionsSaved.Count > 0){
-      positionsSaved.RemoveAt(positionsSaved.Count - 1);
-      positionsSaved.Add(transform.position);
-      if (apneaTimers.Count > 1){
-        apneaTimers.RemoveAt(apneaTimers.Count - 1);
-      }
-      
-    }*/
-
-
-    //avatarClass.AnimationRappel();
-    //Rappel ();
+    positionsSaved.Clear();
   }
 }
