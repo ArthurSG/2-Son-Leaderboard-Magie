@@ -18,6 +18,6 @@ public class TriggerZoneApneaCancel : MonoBehaviour {
   }
 
   void OnTriggerEnter2D (Collider2D col){
-  	teleportation.ApneaPause();
+  	teleportation.ApneaCancel();
   }
 }
