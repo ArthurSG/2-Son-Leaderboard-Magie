@@ -68,20 +68,28 @@ public class Teleportation : MonoBehaviour {
   }
 
   public void ApneaPause (){
-    apneaTimers[apneaTimers.Count -1].Pause();
+    if (apneaTimers.Count > 0){
+      apneaTimers[apneaTimers.Count -1].Pause();
+    }
   }
 
   public void ApneaPlay (){
-    apneaTimers[apneaTimers.Count -1].Play();
+    if (apneaTimers.Count > 0){
+      apneaTimers[apneaTimers.Count -1].Play();
+    }
   }
 
   public void ApneaReset (){
     avatarClass.AnimationRappel();
-    apneaTimers[apneaTimers.Count -1].Reset();
+    if (apneaTimers.Count > 0){
+      apneaTimers[apneaTimers.Count -1].Reset();
+    }
   }
 
   public void ApneaResetPlay (){
-    apneaTimers[apneaTimers.Count -1].ResetPlay();
+    if (apneaTimers.Count > 0){
+      apneaTimers[apneaTimers.Count -1].ResetPlay();
+    }
   }
 
   public void ApneaCancel (){
