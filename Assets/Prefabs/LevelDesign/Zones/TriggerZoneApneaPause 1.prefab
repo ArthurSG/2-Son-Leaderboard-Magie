@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 896414604183032774}
   - component: {fileID: 896414604183032775}
   - component: {fileID: 896414604183032772}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TriggerZoneApneaPause 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

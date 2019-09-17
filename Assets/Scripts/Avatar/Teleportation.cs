@@ -130,5 +130,6 @@ public class Teleportation : MonoBehaviour {
       apneaTimers.Clear();
     }
     positionsSaved.Clear();
-  }
+    GameManager.instance.avatar.spirit.SetActive(false);
+    }
 }
