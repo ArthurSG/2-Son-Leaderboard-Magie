@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   avatar: {fileID: 0}
   camera: {fileID: 0}
+  spiritGameobject: {fileID: 0}
 --- !u!114 &4718021215816024812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,6 +56,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7322147328938576236}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d258a810a8fc2c84fbc83f2b680cfdf1, type: 3}
+  m_Script: {fileID: 11500000, guid: 593808683a08df44bbc790352d5ceb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
