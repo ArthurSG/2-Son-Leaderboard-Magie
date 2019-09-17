@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,70 +10,71 @@ public class Avatar : MonoBehaviour {
   private Rigidbody2D rigid;
   private Animator animator;
 
+  // Animator strings
+  private static readonly int Rappel = Animator.StringToHash("Rappel");
+  private static readonly int Speed = Animator.StringToHash("Speed");
+  private static readonly int Teleport = Animator.StringToHash("Teleport");
+
   // Start is called before the first frame update
-  void Start() {
+  private void Start() {
     FetchComponents();
     SetControls();
   }
 
-  // Update is called once per frame
-  void Update() {
-    
-  }
 
-  void Deplacements(float x, float y) {
+  private void Deplacements(float x, float y) {
     if (!bloqueDeplacement) {
       rigid.velocity = new Vector2(x, y).normalized * vitesseMax;
       animator.SetFloat(Speed, Mathf.Abs(x) + Mathf.Abs(y));
     } else {
       rigid.velocity = Vector2.zero;
-      animator.SetFloat("Speed", 0);
+      animator.SetFloat(Speed, 0);
     }
   }
 
-  void Aim(float x, float y) {
+  private void Aim(float x, float y) {
     aimX = x;
     aimY = y;
   }
 
-  void Interaction() {
+  private void Interaction() {
     print("Interaction");
   }
 
-  void AnimationTeleport() {
-    animator.SetTrigger("Teleport");
+  private void AnimationTeleport() {
+    animator.SetTrigger(Teleport);
   }
 
-  void Teleportation(){
+  private void Teleportation(){
     GetComponent<Teleportation>().Teleport(aimX, aimY);
   }
 
   public void AnimationRappel(){
-    animator.SetTrigger("Rappel");
+    animator.SetTrigger(Rappel);
     
   }
 
-  void Rappeler(){
+  private void Rappeler(){
     GetComponent<Teleportation>().Rappel();
   }
 
-  void FetchComponents() {
+  private void FetchComponents() {
     rigid = GetComponent<Rigidbody2D>();
     animator = GetComponent<Animator>();
   }
 
-  void SetControls() {
+  private void SetControls() {
     PlayerController.instance.OnSecondaryAxis += Aim;
     PlayerController.instance.OnPrimaryAxis += Deplacements;
     PlayerController.instance.OnPrimaryAction += AnimationTeleport;
     PlayerController.instance.OnSecondaryAction += Interaction;
   }
 
-  void BloquerDeplacement(){
+  private void BloquerDeplacement(){
     bloqueDeplacement = true;
   }
 
-  void LibererDeplacement(){
+  private void LibererDeplacement(){
     bloqueDeplacement = false;
   }
 }
