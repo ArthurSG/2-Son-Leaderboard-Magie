@@ -34,6 +34,11 @@ public class Teleportation : MonoBehaviour {
 
       SetNewApneaTimer();
 
+
+      GameObject spirit = GameManager.instance.avatar.spirit;
+      spirit.transform.position = transform.position;
+      spirit.SetActive(true);
+
       transform.position = FindTeleportPosition(aimX, aimY);     
     }
     else { //Can Cancel the Apnea Time and Rappel before the apneaTimer End();
@@ -80,8 +85,16 @@ public class Teleportation : MonoBehaviour {
     transform.position = positionsSaved[positionsSaved.Count -1];
     positionsSaved.RemoveAt(positionsSaved.Count - 1);
     apneaTimers.RemoveAt(apneaTimers.Count - 1);
+
     if (apneaTimers.Count > 0)
-      apneaTimers[apneaTimers.Count - 1].Play();
+    {
+        apneaTimers[apneaTimers.Count - 1].Play();
+        GameManager.instance.avatar.spirit.transform.position = positionsSaved[positionsSaved.Count - 1];
+    }
+    else
+    {
+        GameManager.instance.avatar.spirit.SetActive(false);
+    }
   }
 
   public void ApneaPause (){

@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Spirit : MonoBehaviour
+{
+
+    private GameObject avatar;
+    private LineRenderer lineRend;
+
+    private void Start()
+    {
+        FetchComponents();
+    }
+
+    private void Update()
+    {
+        SpiritLinkUpdate();
+    }
+
+    private void SpiritLinkUpdate()
+    {
+        Vector3[] linkPoses = new Vector3[] { transform.position, avatar.transform.position};
+        lineRend.SetPositions(linkPoses);
+    }
+
+    private void FetchComponents()
+    {
+        avatar = GameManager.instance.avatar.gameObject;
+        lineRend = GetComponent<LineRenderer>();
+    }
+}

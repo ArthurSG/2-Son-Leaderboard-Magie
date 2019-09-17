@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Avatar : MonoBehaviour {
   public float vitesseMax;
+  public GameObject spirit;
 
   private bool bloqueDeplacement = false;
   private float aimX, aimY;
