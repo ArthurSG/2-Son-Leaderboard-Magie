@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vitesseMax: 10
+  spirit: {fileID: 0}
 --- !u!58 &1238981182
 CircleCollider2D:
   m_ObjectHideFlags: 0
