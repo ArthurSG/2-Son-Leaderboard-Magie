@@ -66,9 +66,10 @@ public class Teleportation : MonoBehaviour {
 
     float radius = GameManager.instance.avatar.GetComponent<CircleCollider2D>().radius;
 
-    for (int i = 10; i > 0; i--)
+    for (int i = 10; i >= 0; i--)
     {
-        Vector3 posToCheck = posGo + ((posTp - posGo) * (i/10)); // On vérifie la pos 
+        Vector3 posToCheck = posGo + ((posTp - posGo) * (i/10f)); // On vérifie la pos
+        
         Collider2D[] colls = Physics2D.OverlapCircleAll(posToCheck, radius, LayerMask.GetMask("Floor", "Wall"));
 
         if (colls.Length > 0 && !Array.Exists(colls, x => !x.CompareTag("Walkable")))
