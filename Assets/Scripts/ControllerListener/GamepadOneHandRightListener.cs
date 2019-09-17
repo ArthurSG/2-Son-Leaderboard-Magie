@@ -18,7 +18,7 @@ public class GamepadOneHandRightListener : MonoBehaviour {
 
   // Update is called once per frame
   void Update() {
-  	print (Input.GetAxis("RightTrigger"));
+  	
     if(Input.GetButtonDown("RightBumper")){
       controllerFilter.CallPrimaryAction(controllerIndex);
     }

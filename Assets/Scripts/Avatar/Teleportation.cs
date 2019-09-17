@@ -110,7 +110,7 @@ public class Teleportation : MonoBehaviour {
   }
 
   public void ApneaCancel (){
-    print (apneaTimers.Count);
+   
     if (apneaTimers.Count > 0){
       apneaTimers[apneaTimers.Count -1].Pause();
       apneaTimers.Clear();

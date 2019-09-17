@@ -12,6 +12,11 @@ GameObject:
   - component: {fileID: 7395984813276136651}
   - component: {fileID: 7395984813276136649}
   - component: {fileID: 7395984813276136648}
+  - component: {fileID: 5382728651654277981}
+  - component: {fileID: 89992378560901805}
+  - component: {fileID: 4334537370689825631}
+  - component: {fileID: 3755392348528189188}
+  - component: {fileID: 7637981550262333975}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -57,6 +62,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79092d2f9e901141ab664afba45b5a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controllerIndex: 0
+  controllerName: Keyboard
 --- !u!114 &7395984813276136648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,3 +76,78 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32a3cc5c37c16444f9fe145634b65ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controllerIndex: 1
+  controllerName: Gamepad
+--- !u!114 &5382728651654277981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7395984813276136644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15be3cbddf66e994984adb2e63779c02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerIndex: 2
+  controllerName: GamepadTactic
+--- !u!114 &89992378560901805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7395984813276136644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81034cf6bc6814741af06b773ee1a942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerIndex: 3
+  controllerName: GamepadOneHandLeft
+--- !u!114 &4334537370689825631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7395984813276136644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5942e27add322ac45b78166ca222d4bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerIndex: 4
+  controllerName: GamepadOneHandRight
+--- !u!114 &3755392348528189188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7395984813276136644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8ba8ec4fae5fee48a89f1114b7d4622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeControllerIndex: 0
+  numberOfListener: 2
+--- !u!114 &7637981550262333975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7395984813276136644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7848a78254430564ca8c5070fa95c7fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ControllerListeners:
+  - {fileID: 7395984813276136648}
+  - {fileID: 5382728651654277981}
+  - {fileID: 89992378560901805}
+  - {fileID: 4334537370689825631}
