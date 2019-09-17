@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Teleportation : MonoBehaviour {
@@ -49,14 +51,29 @@ public class Teleportation : MonoBehaviour {
   }
 
   private Vector3 FindTeleportPosition(float aimX, float aimY) {
-    Vector3 position;
     Vector2 direction = new Vector2(aimX, aimY).normalized;
-    position = new Vector3(
-        transform.position.x + direction.x * teleportationMaximumDistance,
-        transform.position.y + direction.y * teleportationMaximumDistance,
-        transform.position.z);
 
-    return position;
+    var posGo = transform.position;
+    Vector3 posTp = new Vector3(
+    posGo.x + direction.x * teleportationMaximumDistance,
+    posGo.y + direction.y * teleportationMaximumDistance,
+    posGo.z);
+
+    float radius = GameManager.instance.avatar.GetComponent<CircleCollider2D>().radius;
+
+    for (int i = 10; i > 0; i--)
+    {
+        Vector3 posToCheck = posGo + ((posTp - posGo) * (i/10)); // On vérifie la pos 
+        Collider2D[] colls = Physics2D.OverlapCircleAll(posToCheck, radius, LayerMask.GetMask("Floor", "Wall"));
+
+        if (colls.Length > 0 && !Array.Exists(colls, x => !x.CompareTag("Walkable")))
+        {
+            return posToCheck; // On a trouvé aucun non walkable, la position est valide
+        }
+
+    }
+
+    return posGo; // Pas de position trouvée dans la range, on renvoie la pos actuelle de l'avatar
   }
 
   public void Rappel(){
