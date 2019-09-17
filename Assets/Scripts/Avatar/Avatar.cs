@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,8 +23,8 @@ public class Avatar : MonoBehaviour {
 
   void Deplacements(float x, float y) {
     if (!bloqueDeplacement) {
-      rigid.velocity = new Vector2(x * vitesseMax, y * vitesseMax);
-      animator.SetFloat("Speed", Mathf.Abs(x) + Mathf.Abs(y));
+      rigid.velocity = new Vector2(x, y).normalized * vitesseMax;
+      animator.SetFloat(Speed, Mathf.Abs(x) + Mathf.Abs(y));
     } else {
       rigid.velocity = Vector2.zero;
       animator.SetFloat("Speed", 0);
