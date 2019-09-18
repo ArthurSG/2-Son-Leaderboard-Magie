@@ -28,6 +28,7 @@ public class Avatar : MonoBehaviour {
       rigid.velocity = new Vector2(x, y).normalized * vitesseMax;
       animator.SetFloat(Speed, Mathf.Abs(x) + Mathf.Abs(y));
     } else {
+
       rigid.velocity = Vector2.zero;
       animator.SetFloat(Speed, 0);
     }
