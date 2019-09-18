@@ -11,6 +11,7 @@ public class Teleportation : MonoBehaviour {
   public float teleportationMaximumDistance;
 
   private Avatar avatarClass;
+  private Rigidbody2D rb2D;
 
   private List<Vector3> positionsSaved;
   private List<Timer> apneaTimers;
@@ -21,6 +22,7 @@ public class Teleportation : MonoBehaviour {
     apneaTimers = new List<Timer>();
 
     avatarClass = GetComponent<Avatar>();
+    rb2D = GetComponent<Rigidbody2D>();
   }
 
   void Update (){
@@ -39,7 +41,7 @@ public class Teleportation : MonoBehaviour {
       spirit.transform.position = transform.position;
       spirit.SetActive(true);
 
-      transform.position = FindTeleportPosition(aimX, aimY);     
+      /*transform.position*/ rb2D.MovePosition(FindTeleportPosition(aimX, aimY));
     }
     else { //Can Cancel the Apnea Time and Rappel before the apneaTimer End();
       ApneaReset ();
