@@ -12,15 +12,17 @@ public class AvatarEffectsManager : MonoBehaviour{
   }
 
   void Update(){
-    print(Effects[1].particleCount);
+    print(Effects[1].isPlaying);
   }
 
   void EffectPlay(int Index){
-  	Effects[Index].Play();
+  	if (!Effects[Index].isPlaying)
+  		Effects[Index].Play();
   }
 
   void EffectStop (int Index){
-  	Effects[Index].Stop();
+  	if (Effects[Index].isPlaying)
+  		Effects[Index].Stop();
   }
 
   void FetchComponents(){
