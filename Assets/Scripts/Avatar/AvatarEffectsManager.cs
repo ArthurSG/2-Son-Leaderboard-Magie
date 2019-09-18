@@ -15,19 +15,13 @@ public class AvatarEffectsManager : MonoBehaviour{
         
   }
 
-  void AllerEffectsPlay(){
-  	foreach (ParticleSystem ps in Effects){
-  		ps.Play();
-  	}
+  void EffectPlay(int Index){
+  	Effects[Index].Play();
   }
 
-  void RetourEffectsStop(){
-  	foreach (ParticleSystem ps in Effects){
-  		ps.Stop();
-  	}
+  void EffectStop (int Index){
+  	Effects[Index].Stop();
   }
-
-
 
   void FetchComponents(){
 

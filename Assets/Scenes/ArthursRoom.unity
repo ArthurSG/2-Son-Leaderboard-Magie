@@ -1473,6 +1473,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 91366044, guid: c907f04da929bd0fea0cd9bd4356656b, type: 3}
+      propertyPath: apneaDuration
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 552116516, guid: c907f04da929bd0fea0cd9bd4356656b, type: 3}
       propertyPath: m_Name
       value: LinkEmbers
@@ -1488,13 +1492,18 @@ PrefabInstance:
     - target: {fileID: 1795660753054242312, guid: c907f04da929bd0fea0cd9bd4356656b,
         type: 3}
       propertyPath: Effects.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1795660753054242312, guid: c907f04da929bd0fea0cd9bd4356656b,
         type: 3}
       propertyPath: Effects.Array.data[0]
       value: 
       objectReference: {fileID: 552116520}
+    - target: {fileID: 1795660753054242312, guid: c907f04da929bd0fea0cd9bd4356656b,
+        type: 3}
+      propertyPath: Effects.Array.data[1]
+      value: 
+      objectReference: {fileID: 799757698}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c907f04da929bd0fea0cd9bd4356656b, type: 3}
 --- !u!1001 &268193920
@@ -12873,6 +12882,12 @@ PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 1715887309513844928, guid: ba32f4eef27ad15489a33d6d9a0d5781,
     type: 3}
   m_PrefabInstance: {fileID: 793709689}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &799757698 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6924658371714666759, guid: c4b92dd69bc0e7049a3ae921fe2f4f0d,
+    type: 3}
+  m_PrefabInstance: {fileID: 995313503}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &829723732 stripped
 Transform:
