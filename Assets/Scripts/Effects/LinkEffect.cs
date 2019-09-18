@@ -12,13 +12,13 @@ public class LinkEffect : MonoBehaviour{
 
   void Start(){
     FetchComponents ();
+
+
   }
 
   void Update(){
   	this.transform.LookAt(spirit.transform);
 
-
-  	print (magnitude);
   	DistanceWithTarget ();
   	LifetimeModifier();
   }
