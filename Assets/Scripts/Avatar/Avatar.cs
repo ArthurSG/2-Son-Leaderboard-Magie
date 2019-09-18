@@ -62,6 +62,7 @@ public class Avatar : MonoBehaviour {
   private void FetchComponents() {
     rigid = GetComponent<Rigidbody2D>();
     animator = GetComponent<Animator>();
+    spirit = GameManager.instance.spirit;
   }
 
   private void SetControls() {

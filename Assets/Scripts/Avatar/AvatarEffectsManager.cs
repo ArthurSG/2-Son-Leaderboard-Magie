@@ -12,7 +12,7 @@ public class AvatarEffectsManager : MonoBehaviour{
   }
 
   void Update(){
-        
+    print(Effects[1].particleCount);
   }
 
   void EffectPlay(int Index){

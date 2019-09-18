@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour {
 
   public Avatar avatar;
   public Camera camera;
-  public GameObject spiritGameobject;
+  public GameObject spirit;
 
   private void Awake() {
     if (instance != null)
