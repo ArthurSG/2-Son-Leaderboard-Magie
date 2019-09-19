@@ -10,7 +10,6 @@ public class Avatar : MonoBehaviour {
   private float aimX, aimY;
   private Rigidbody2D rigid;
   private Animator animator;
-   public bool isInTP;
 
   // Animator strings
   private static readonly int Rappel = Animator.StringToHash("Rappel");
