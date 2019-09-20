@@ -510,7 +510,7 @@ PrefabInstance:
     - target: {fileID: 8736777463031177160, guid: c907f04da929bd0fea0cd9bd4356656b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8736777463031177160, guid: c907f04da929bd0fea0cd9bd4356656b,
         type: 3}
@@ -9647,17 +9647,17 @@ PrefabInstance:
     - target: {fileID: 1327345455373163846, guid: 85b85c69e159dfe43840f63a2b707be6,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1327345455373163846, guid: 85b85c69e159dfe43840f63a2b707be6,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1327345455373163846, guid: 85b85c69e159dfe43840f63a2b707be6,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1327345455373163846, guid: 85b85c69e159dfe43840f63a2b707be6,
         type: 3}
@@ -10487,6 +10487,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327345455373163847, guid: 85b85c69e159dfe43840f63a2b707be6,
+        type: 3}
+      propertyPath: nombreSourcesRequiseMax
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85b85c69e159dfe43840f63a2b707be6, type: 3}
@@ -11347,7 +11352,8 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 502428806}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4718021215816024812, guid: 14e740eea4f32eb48b2d9c70d5e1bb2e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 14e740eea4f32eb48b2d9c70d5e1bb2e, type: 3}
 --- !u!1001 &7395984814498443891
 PrefabInstance:
