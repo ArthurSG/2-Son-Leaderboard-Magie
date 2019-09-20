@@ -6,6 +6,8 @@ public class Avatar : MonoBehaviour {
   public float vitesseMax;
   public GameObject spirit;
 
+  public ParticleSystem HardWalkEffect;
+
   private bool bloqueDeplacement = false;
   private float aimX, aimY;
   private Rigidbody2D rigid;
@@ -26,11 +28,22 @@ public class Avatar : MonoBehaviour {
   private void Deplacements(float x, float y) {
     if (!bloqueDeplacement) {
       rigid.velocity = new Vector2(x, y).normalized * vitesseMax;
+
+      if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle") && (x != 0 || y != 0)){
+        if (!HardWalkEffect.isPlaying)
+          HardWalkEffect.Play();
+      }
       animator.SetFloat(Speed, Mathf.Abs(x) + Mathf.Abs(y));
+
+      if (x == 0 && y == 0)
+        if (HardWalkEffect.isPlaying)
+          HardWalkEffect.Stop();
     } else {
 
       rigid.velocity = Vector2.zero;
       animator.SetFloat(Speed, 0);
+
+
     }
   }
 
