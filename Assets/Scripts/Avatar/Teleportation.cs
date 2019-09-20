@@ -32,16 +32,18 @@ public class Teleportation : MonoBehaviour {
   public void Teleport(float aimX, float aimY) {
 
     if (positionsSaved.Count < numberOfConsecutiveTeleportation) {
-      positionsSaved.Add(transform.position);
+        var position = transform.position;
+
+        positionsSaved.Add(position);
 
       SetNewApneaTimer();
 
 
       GameObject spirit = GameManager.instance.avatar.spirit;
-      spirit.transform.position = transform.position;
+      spirit.transform.position = position;
       spirit.SetActive(true);
 
-      rb2D.MovePosition(FindTeleportPosition(aimX, aimY));
+      transform.Translate(FindTeleportPosition(aimX, aimY) - position);
       GameManager.instance.avatar.isInTP = true;
     }
     else { //Can Cancel the Apnea Time and Rappel before the apneaTimer End();
