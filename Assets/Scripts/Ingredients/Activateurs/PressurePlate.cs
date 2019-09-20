@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class PressurePlate : Activateur {
 
-  public float TempsRemonter; //temps entre la sortie du personnage 
-  private float Pressured = 0;
+  [FormerlySerializedAs("TempsRemonter")] public float tempsRemonter; //temps entre la sortie du personnage 
+  [FormerlySerializedAs("notInTP")] public bool notInTp = false;
+  private Slider timeBar;
+  private Timer currentTimer = new Timer(0);
+  private int pressured = 0;
   private Collider2D col;
 
   // Start is called before the first frame update
@@ -13,28 +18,59 @@ public class PressurePlate : Activateur {
     FetchComponents();
   }
 
-  // Update is called once per frame
-  void Update() {
+  protected override void Update()
+  {
+      base.Update();
+  }
 
+  protected override void ActifUpdate()
+  {
+      if (pressured == 0)
+          UpdateBar();
+      base.ActifUpdate();
+  }
+
+  protected override void Activer()
+  {
+      base.Activer();
+      timeBar.gameObject.SetActive(true);
+      timeBar.value = 1;
+  }
+
+  protected override void Desactiver()
+  {
+      base.Desactiver();
+      timeBar.gameObject.SetActive(false);
   }
 
   void FetchComponents(){
     col = GetComponent<Collider2D>();
-
+    timeBar = transform.GetChild(0).GetChild(0).GetComponent<Slider>();
+    timeBar.gameObject.SetActive(false);
   }
 
   private void OnTriggerEnter2D(Collider2D other) {
-    if (Pressured == 0) {
+    if (notInTp && GameManager.instance.avatar.isInTP) return;
+    if (pressured == 0) {
       Activer();
     }
-    Pressured++;
+    pressured++;
   }
 
-  private void OnTriggerExit2D(Collider2D other) {
-    Pressured--;
-    if (Pressured <= 0) {
-      Timer t = new Timer(TempsRemonter, Desactiver);
-      t.Play();
+  private void OnTriggerExit2D(Collider2D other)
+  {
+    pressured--;
+    if (pressured <= 0) {
+        if (currentTimer.IsStarted())
+            currentTimer.Reset();
+        currentTimer = new Timer(tempsRemonter, Desactiver);
+        currentTimer.Play();
     }
+  }
+
+  private void UpdateBar()
+  {
+      float valueRemap = Utils.Remap(currentTimer.Time, 0, currentTimer.EndTime, 1, 0);
+      timeBar.value = valueRemap;
   }
 }
