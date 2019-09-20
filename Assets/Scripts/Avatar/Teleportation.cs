@@ -41,7 +41,8 @@ public class Teleportation : MonoBehaviour {
       spirit.transform.position = transform.position;
       spirit.SetActive(true);
 
-      /*transform.position*/ rb2D.MovePosition(FindTeleportPosition(aimX, aimY));
+      rb2D.MovePosition(FindTeleportPosition(aimX, aimY));
+      GameManager.instance.avatar.isInTP = true;
     }
     else { //Can Cancel the Apnea Time and Rappel before the apneaTimer End();
       ApneaReset ();
@@ -68,12 +69,19 @@ public class Teleportation : MonoBehaviour {
 
     float radius = GameManager.instance.avatar.GetComponent<CircleCollider2D>().radius;
 
-    for (int i = 10; i >= 0; i--)
+     RaycastHit2D hit = Physics2D.CircleCast(posGo, radius, direction, teleportationMaximumDistance, LayerMask.GetMask("WallBlock"));
+
+     if (hit.collider != null)
+     {
+         posTp = hit.collider.transform.position;
+     }
+
+     for (int i = 10; i >= 0; i--)
     {
         Vector3 posToCheck = posGo + ((posTp - posGo) * (i/10f)); // On vérifie la pos
         
         Collider2D[] colls = Physics2D.OverlapCircleAll(posToCheck, radius, LayerMask.GetMask("Floor", "Wall"));
-
+        
         if (colls.Length > 0 && !Array.Exists(colls, x => !x.CompareTag("Walkable")))
         {
             return posToCheck; // On a trouvé aucun non walkable, la position est valide
@@ -97,6 +105,7 @@ public class Teleportation : MonoBehaviour {
     else
     {
         GameManager.instance.avatar.spirit.SetActive(false);
+        GameManager.instance.avatar.isInTP = false;
     }
   }
 
@@ -133,5 +142,6 @@ public class Teleportation : MonoBehaviour {
     }
     positionsSaved.Clear();
     GameManager.instance.avatar.spirit.SetActive(false);
-    }
+    GameManager.instance.avatar.isInTP = false;
+  }
 }

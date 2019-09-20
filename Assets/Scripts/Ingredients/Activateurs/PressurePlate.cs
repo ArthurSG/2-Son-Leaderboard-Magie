@@ -5,6 +5,7 @@ using UnityEngine;
 public class PressurePlate : Activateur {
 
   public float TempsRemonter; //temps entre la sortie du personnage 
+  public bool notInTP = false;
   private float Pressured = 0;
   private Collider2D col;
 
@@ -24,13 +25,15 @@ public class PressurePlate : Activateur {
   }
 
   private void OnTriggerEnter2D(Collider2D other) {
+    if (notInTP && GameManager.instance.avatar.isInTP) return;
     if (Pressured == 0) {
       Activer();
     }
     Pressured++;
   }
 
-  private void OnTriggerExit2D(Collider2D other) {
+  private void OnTriggerExit2D(Collider2D other)
+  {
     Pressured--;
     if (Pressured <= 0) {
       Timer t = new Timer(TempsRemonter, Desactiver);
