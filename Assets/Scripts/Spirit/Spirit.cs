@@ -12,6 +12,7 @@ public class Spirit : MonoBehaviour
     private void Start()
     {
         FetchComponents();
+        DisableOnStart();
     }
 
     private void Update()
@@ -29,5 +30,11 @@ public class Spirit : MonoBehaviour
     {
         avatar = GameManager.instance.avatar.gameObject;
         lineRend = GetComponent<LineRenderer>();
+    }
+
+    private void DisableOnStart()
+    {
+        transform.SetParent(null);
+        gameObject.SetActive(false);
     }
 }
