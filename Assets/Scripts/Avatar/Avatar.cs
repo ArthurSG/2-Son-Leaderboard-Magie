@@ -12,8 +12,8 @@ public class Avatar : MonoBehaviour {
   private float aimX, aimY;
   private Rigidbody2D rigid;
   private Animator animator;
-   public bool isInTP;
 
+  [HideInInspector] public bool isInTP;
   // Animator strings
   private static readonly int Rappel = Animator.StringToHash("Rappel");
   private static readonly int Speed = Animator.StringToHash("Speed");
