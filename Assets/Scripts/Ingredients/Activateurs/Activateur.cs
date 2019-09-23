@@ -5,7 +5,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class Activateur : MonoBehaviour
 {
-  public List<Activable> activables;
+  public List<Activable> activables = new List<Activable>();
   private List<Activable> activablesCheck = new List<Activable>(); //Used for inspector value update
   private bool actif;
 

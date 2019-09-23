@@ -5641,6 +5641,11 @@ PrefabInstance:
       propertyPath: TempsRemonter
       value: 9999
       objectReference: {fileID: 0}
+    - target: {fileID: 7700172916810368280, guid: 9c89259425bfd2448891b6afb1557e47,
+        type: 3}
+      propertyPath: tempsRemonter
+      value: 9999
+      objectReference: {fileID: 0}
     - target: {fileID: 7700172916810368281, guid: 9c89259425bfd2448891b6afb1557e47,
         type: 3}
       propertyPath: m_SortingOrder
@@ -22266,6 +22271,11 @@ PrefabInstance:
     - target: {fileID: 7700172916810368280, guid: 9c89259425bfd2448891b6afb1557e47,
         type: 3}
       propertyPath: TempsRemonter
+      value: 9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700172916810368280, guid: 9c89259425bfd2448891b6afb1557e47,
+        type: 3}
+      propertyPath: tempsRemonter
       value: 9999
       objectReference: {fileID: 0}
     - target: {fileID: 7700172916810368281, guid: 9c89259425bfd2448891b6afb1557e47,

@@ -6,7 +6,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public abstract class Activable : MonoBehaviour {
   public int nombreSourcesRequiseMax;
-  public List<Activateur> linkedActivateurs;
+  public List<Activateur> linkedActivateurs = new List<Activateur>();
   private List<Activateur> linkedActivateursCheck = new List<Activateur>();  //Used for inspector value update
 
     private int nombreSourcesRequise;  // nombreSourcesRequise si <= 0
@@ -31,7 +31,7 @@ public abstract class Activable : MonoBehaviour {
   protected bool actif;
 
   protected void Start() {
-      NombreSourcesRequise = NombreSourcesRequise;
+      NombreSourcesRequise = nombreSourcesRequiseMax;
   }
 
   public void Activer() {
