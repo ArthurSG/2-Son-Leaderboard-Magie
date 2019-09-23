@@ -17,7 +17,7 @@ public class Door : Activable {
   }
 
   protected override void SetEtat() {
-    if (nombreSourcesRequise > 0) {
+    if (NombreSourcesRequise > 0) {
       col.isTrigger = false;
       GetComponent<SpriteRenderer>().color = Color.red;
     }
