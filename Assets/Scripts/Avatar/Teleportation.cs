@@ -13,16 +13,27 @@ public class Teleportation : MonoBehaviour {
   private Avatar avatarClass;
   private Rigidbody2D rb2D;
 
+  private Camera avatarCamera;
+  private DirectionalScreenShake screenShake;
+
   private List<Vector3> positionsSaved;
   private List<Timer> apneaTimers;
 
 
   void Start() {
-    positionsSaved = new List<Vector3>();
+    FetchComponents ();
+  }
+
+  void FetchComponents (){
+  	positionsSaved = new List<Vector3>();
     apneaTimers = new List<Timer>();
 
     avatarClass = GetComponent<Avatar>();
     rb2D = GetComponent<Rigidbody2D>();
+
+    avatarCamera = GetComponentInChildren<Camera>();
+    screenShake = avatarCamera.GetComponent<DirectionalScreenShake>();
+
   }
 
   void Update (){
@@ -45,6 +56,8 @@ public class Teleportation : MonoBehaviour {
 
       transform.Translate(FindTeleportPosition(aimX, aimY) - position);
       GameManager.instance.avatar.isInTP = true;
+
+      screenShake.Shake(new Vector3 (aimX, aimY,0), 0.1f, 4);
     }
     else { //Can Cancel the Apnea Time and Rappel before the apneaTimer End();
       ApneaReset ();
