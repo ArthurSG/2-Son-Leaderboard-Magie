@@ -25,8 +25,16 @@ public class Avatar : MonoBehaviour {
     SetControls();
   }
 
+  private void Flip (float x){
+    if (x < 0 && this.transform.localScale.x != -1)
+      this.transform.localScale = new Vector3 (-1,1,1);
+    if (x > 0 && this.transform.localScale.x != 1)
+      this.transform.localScale = new Vector3 (1,1,1);;
+  }
+
 
   private void Deplacements(float x, float y) {
+    Flip(x);
     if (!bloqueDeplacement) {
       rigid.velocity = new Vector2(x, y).normalized * vitesseMax;
 

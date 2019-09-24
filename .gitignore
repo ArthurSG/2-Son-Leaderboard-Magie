@@ -54,7 +54,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 ProjectSettings/ProjectVersion.txt
-Assets/Unexported/
 Assets/_TerrainAutoUpgrade/
 Assets/_TerrainAutoUpgrade.meta
 Assets/Unexported.meta

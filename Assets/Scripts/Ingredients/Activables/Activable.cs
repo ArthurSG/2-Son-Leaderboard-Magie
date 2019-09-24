@@ -56,6 +56,7 @@ public abstract class Activable : MonoBehaviour {
   {
       foreach (Activateur activateur in linkedActivateurs)
       {
+          if (activateur == null) continue;
           if (!activateur.activables.Contains(this))
           {
               activateur.activables.Add(this);
@@ -64,6 +65,7 @@ public abstract class Activable : MonoBehaviour {
 
       foreach (Activateur activateur in linkedActivateursCheck)
       {
+          if (activateur == null) continue;
           if (!linkedActivateurs.Contains(activateur)) // We removed an item from the list
           {
               if (activateur.activables.Contains(this))
