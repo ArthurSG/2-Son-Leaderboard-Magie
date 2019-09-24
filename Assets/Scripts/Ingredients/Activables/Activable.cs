@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [ExecuteInEditMode]
@@ -54,25 +55,14 @@ public abstract class Activable : MonoBehaviour {
   
   protected virtual void OnValidate()
   {
-      foreach (Activateur activateur in linkedActivateurs)
+      foreach (var activateur in linkedActivateurs.Where(activateur => activateur != null).Where(activateur => !activateur.activables.Contains(this)))
       {
-          if (activateur == null) continue;
-          if (!activateur.activables.Contains(this))
-          {
-              activateur.activables.Add(this);
-          }
+          activateur.activables.Add(this);
       }
 
-      foreach (Activateur activateur in linkedActivateursCheck)
+      foreach (var activateur in from activateur in linkedActivateursCheck where activateur != null where !linkedActivateurs.Contains(activateur) where activateur.activables.Contains(this) select activateur)
       {
-          if (activateur == null) continue;
-          if (!linkedActivateurs.Contains(activateur)) // We removed an item from the list
-          {
-              if (activateur.activables.Contains(this))
-              {
-                  activateur.activables.Remove(this); // On remove l'objet de l'autre liste
-              }
-          }
+          activateur.activables.Remove(this); // On remove l'objet de l'autre liste
       }
 
       linkedActivateursCheck = new List<Activateur>(linkedActivateurs);
