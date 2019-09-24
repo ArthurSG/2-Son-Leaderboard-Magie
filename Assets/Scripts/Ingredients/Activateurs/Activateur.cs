@@ -38,6 +38,7 @@ public class Activateur : MonoBehaviour
   {
       foreach (Activable activable in activables)
       {
+          if (activable == null) continue;
           if (!activable.linkedActivateurs.Contains(this))
           {
                 activable.linkedActivateurs.Add(this);
@@ -46,6 +47,7 @@ public class Activateur : MonoBehaviour
 
       foreach (Activable activable in activablesCheck)
       {
+          if (activable == null) continue;
           if (!activables.Contains(activable)) // We removed an item from the list
           {
               if (activable.linkedActivateurs.Contains(this))
