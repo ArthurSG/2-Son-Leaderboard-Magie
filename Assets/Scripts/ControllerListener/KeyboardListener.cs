@@ -59,7 +59,10 @@ public class KeyboardListener : MonoBehaviour {
   }
 
   public void ResetSecondaryAxis() {
-    Vector3 MouseDirection = cam.ScreenToWorldPoint(Input.mousePosition) - GameManager.instance.avatar.transform.position;
+        //Vector3 MouseDirection = cam.ScreenToWorldPoint(Input.mousePosition) - GameManager.instance.avatar.transform.position;
+    MouseDirection =
+      cam.ScreenPointToRay(Input.mousePosition).GetPoint(cam.gameObject.transform.localPosition.magnitude) -
+      GameManager.instance.avatar.transform.position;
     controllerFilter.CallSetSecondaryAxis(controllerIndex, MouseDirection.x, MouseDirection.y);
   }
 }
