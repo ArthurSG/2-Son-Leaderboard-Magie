@@ -42,7 +42,7 @@ public class Activateur : MonoBehaviour
           activable.linkedActivateurs.Add(this);
       }
 
-      foreach (var activable in from activable in activablesCheck where activable != null where !activables.Contains(activable) where activable.linkedActivateurs.Contains(this) select activable)
+      foreach (var activable in from activable in activablesCheck where activable != null where !activables.Contains(activable) where activable.linkedActivateurs.Contains(this) select activable) // On vient de supprimer un activable lié
       {
           activable.linkedActivateurs.Remove(this); // On remove l'objet de l'autre liste
       }
