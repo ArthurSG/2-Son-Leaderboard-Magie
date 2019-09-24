@@ -8,7 +8,7 @@ public class Avatar : MonoBehaviour {
   public GameObject teleportationTarget;
   public ParticleSystem HardWalkEffect;
 
-  private bool bloqueDeplacement = false;
+  private bool bloqueDeplacement = false, isFacingRight = true;
   private float aimX, aimY;
   private Rigidbody2D rigid;
   private Animator animator;
@@ -27,10 +27,14 @@ public class Avatar : MonoBehaviour {
   }
 
   private void Flip (float x){
-    if (x < 0 && this.transform.localScale.x != -1)
-      this.transform.localScale = new Vector3 (-1,1,1);
-    if (x > 0 && this.transform.localScale.x != 1)
-      this.transform.localScale = new Vector3 (1,1,1);;
+    if (x < 0 && isFacingRight) {
+      this.transform.Find("Sprites").localScale = new Vector3 (-1,1,1);
+      isFacingRight = !isFacingRight;
+    }
+    if (x > 0 && !isFacingRight) {
+      this.transform.Find("Sprites").localScale = new Vector3 (1,1,1);
+      isFacingRight = !isFacingRight;
+    }
   }
 
 
@@ -59,11 +63,11 @@ public class Avatar : MonoBehaviour {
   private void Aim(float x, float y) {
     aimX = x;
     aimY = y;
-    MoveCursor(new Vector2(x,y));  
+    MoveCursor(new Vector3(x,y,0));  
   }
 
-  private void MoveCursor(Vector2 newCursorDirection){
-
+  private void MoveCursor(Vector3 newCursorDirection){
+    teleportationTarget.transform.localPosition = newCursorDirection.normalized * teleportComponent.teleportationMaximumDistance; 
   }
 
   // Called by ControllerListener events
