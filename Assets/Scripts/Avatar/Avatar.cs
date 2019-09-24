@@ -5,13 +5,14 @@ using UnityEngine;
 public class Avatar : MonoBehaviour {
   public float vitesseMax;
   public GameObject spirit;
-
+  public GameObject teleportationTarget;
   public ParticleSystem HardWalkEffect;
 
   private bool bloqueDeplacement = false;
   private float aimX, aimY;
   private Rigidbody2D rigid;
   private Animator animator;
+  private Teleportation teleportComponent;
 
   [HideInInspector] public bool isInTP;
   // Animator strings
@@ -33,6 +34,7 @@ public class Avatar : MonoBehaviour {
   }
 
 
+  // Called by ControllerListener events
   private void Deplacements(float x, float y) {
     Flip(x);
     if (!bloqueDeplacement) {
@@ -48,29 +50,34 @@ public class Avatar : MonoBehaviour {
         if (HardWalkEffect.isPlaying)
           HardWalkEffect.Stop();
     } else {
-
       rigid.velocity = Vector2.zero;
       animator.SetFloat(Speed, 0);
-
-
     }
   }
 
+  // Called by ControllerListener events
   private void Aim(float x, float y) {
     aimX = x;
     aimY = y;
+    MoveCursor(new Vector2(x,y));  
   }
 
+  private void MoveCursor(Vector2 newCursorDirection){
+
+  }
+
+  // Called by ControllerListener events
   private void Interaction() {
     print("Interaction");
   }
 
+  // Called by ControllerListener events
   private void AnimationTeleport() {
     animator.SetTrigger(Teleport);
   }
 
   private void Teleportation(){
-    GetComponent<Teleportation>().Teleport(aimX, aimY);
+    teleportComponent.Teleport(aimX, aimY);
   }
 
   public void AnimationRappel(){
@@ -85,6 +92,7 @@ public class Avatar : MonoBehaviour {
   private void FetchComponents() {
     rigid = GetComponent<Rigidbody2D>();
     animator = GetComponent<Animator>();
+    teleportComponent = GetComponent<Teleportation>();
     spirit = GameManager.instance.spirit;
   }
 
