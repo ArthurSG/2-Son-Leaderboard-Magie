@@ -41,7 +41,10 @@ public class KeyboardListener : MonoBehaviour {
   }
 
   void HandleSecondaryAxis() {
-    MouseDirection = cam.ScreenToWorldPoint(Input.mousePosition) - GameManager.instance.avatar.transform.position;
+    //MouseDirection = cam.ScreenToWorldPoint(Input.mousePosition) - GameManager.instance.avatar.transform.position;
+    MouseDirection =
+      cam.ScreenPointToRay(Input.mousePosition).GetPoint(cam.gameObject.transform.localPosition.magnitude) -
+      GameManager.instance.avatar.transform.position;
     ResetMouseDirection();
     if (Input.GetAxis("SecondaryAxisXMouse") != 0f || Input.GetAxis("SecondaryAxisYMouse") != 0f){
       controllerFilter.CallSetSecondaryAxis(controllerIndex, MouseDirection.x, MouseDirection.y);
