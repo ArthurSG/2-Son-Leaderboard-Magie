@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
   public Avatar avatar;
   public Camera camera;
   public GameObject spirit;
+  public bool useNewSpaceModel;
 
   private void Awake() {
     if (instance != null)

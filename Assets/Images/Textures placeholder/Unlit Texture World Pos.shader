@@ -178,7 +178,7 @@ Shader "Unlit Texture World Pos"
 Version=17000
 1920;0;1920;1019;6158.706;4453.879;5.104669;True;False
 Node;AmplifyShaderEditor.CommentaryNode;82;-3964.585,-2926.838;Float;False;1851.896;1019.743;World plane rotator;17;62;65;68;61;53;54;70;69;67;73;71;66;72;74;75;76;77;;1,1,1,1;0;0
-Node;AmplifyShaderEditor.RangedFloatNode;62;-3713.212,-2261.57;Float;False;InstancedProperty;_RotationX;RotationX;2;0;Create;True;0;0;False;0;90;0;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;62;-3713.212,-2261.57;Float;False;InstancedProperty;_RotationX;RotationX;2;0;Create;True;0;0;False;0;90;180;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.Vector3Node;65;-3563.753,-2414.09;Float;False;Constant;_Vector0;Vector 0;3;0;Create;True;0;0;False;0;1,0,0;0,0,0;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 Node;AmplifyShaderEditor.RangedFloatNode;68;-3285.856,-2094.887;Float;False;InstancedProperty;_RotationY;RotationY;3;0;Create;True;0;0;False;0;90;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RadiansOpNode;61;-3537.661,-2254.537;Float;False;1;0;FLOAT;0;False;1;FLOAT;0
@@ -198,9 +198,9 @@ Node;AmplifyShaderEditor.RotateAboutAxisNode;75;-3387.118,-2734.003;Float;False;
 Node;AmplifyShaderEditor.BreakToComponentsNode;51;-1900.425,-2418.539;Float;False;FLOAT3;1;0;FLOAT3;0,0,0;False;16;FLOAT;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT;5;FLOAT;6;FLOAT;7;FLOAT;8;FLOAT;9;FLOAT;10;FLOAT;11;FLOAT;12;FLOAT;13;FLOAT;14;FLOAT;15
 Node;AmplifyShaderEditor.RangedFloatNode;20;-1720.314,-2014.648;Float;False;Constant;_Float0;Float 0;2;0;Create;True;0;0;False;0;-1;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.AbsOpNode;21;-1673.481,-1905.826;Float;False;1;0;FLOAT2;0,0;False;1;FLOAT2;0
+Node;AmplifyShaderEditor.DynamicAppendNode;52;-1635.055,-2423.986;Float;False;FLOAT3;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.RotateAboutAxisNode;76;-2917.877,-2746.143;Float;False;False;4;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;2;FLOAT3;0,0,0;False;3;FLOAT3;0,0,0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;22;-1516.446,-2002.25;Float;False;2;2;0;FLOAT;0;False;1;FLOAT2;0,0;False;1;FLOAT2;0
-Node;AmplifyShaderEditor.DynamicAppendNode;52;-1635.055,-2423.986;Float;False;FLOAT3;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.SimpleDivideOpNode;19;-1336.376,-2149.516;Float;True;2;0;FLOAT3;0,0,0;False;1;FLOAT2;0,0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.RotateAboutAxisNode;77;-2452.846,-2689.794;Float;False;False;4;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;2;FLOAT3;0,0,0;False;3;FLOAT3;0,0,0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.RelayNode;78;-1239.969,-1114.69;Float;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0
@@ -243,14 +243,14 @@ WireConnection;75;1;61;0
 WireConnection;75;3;74;0
 WireConnection;51;0;72;0
 WireConnection;21;0;17;0
+WireConnection;52;0;51;0
+WireConnection;52;1;51;1
+WireConnection;52;2;51;2
 WireConnection;76;0;69;0
 WireConnection;76;1;67;0
 WireConnection;76;3;75;0
 WireConnection;22;0;20;0
 WireConnection;22;1;21;0
-WireConnection;52;0;51;0
-WireConnection;52;1;51;1
-WireConnection;52;2;51;2
 WireConnection;19;0;52;0
 WireConnection;19;1;22;0
 WireConnection;77;0;73;0
@@ -280,4 +280,4 @@ WireConnection;47;1;37;0
 WireConnection;47;2;44;0
 WireConnection;0;2;47;0
 ASEEND*/
-//CHKSM=81E46B03701B124298080F85249B822CBA8BDFFA
+//CHKSM=8A9A904B89C81E8823C6E153351F14B7D965417B

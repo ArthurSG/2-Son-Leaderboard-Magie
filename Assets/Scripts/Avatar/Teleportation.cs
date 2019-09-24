@@ -77,10 +77,12 @@ public class Teleportation : MonoBehaviour {
     Vector2 direction = new Vector2(aimX, aimY).normalized;
 
     var posGo = transform.position;
+
+        
     Vector3 posTp = new Vector3(
     posGo.x + direction.x * teleportationMaximumDistance,
     posGo.y + direction.y * teleportationMaximumDistance,
-    posGo.z);
+      posGo.z);
 
     float radius = GameManager.instance.avatar.GetComponent<CircleCollider2D>().radius;
 
@@ -92,7 +94,9 @@ public class Teleportation : MonoBehaviour {
 
         if (colls.Length > 0 && !Array.Exists(colls, x => !x.CompareTag("Walkable")))
         {
-            return posToCheck; // On a trouvé aucun non walkable, la position est valide
+          if (GameManager.instance.useNewSpaceModel)
+            posToCheck = new Vector3(posToCheck.x, posToCheck.z, posToCheck.y);
+          return posToCheck; // On a trouvé aucun non walkable, la position est valide
         }
 
     }

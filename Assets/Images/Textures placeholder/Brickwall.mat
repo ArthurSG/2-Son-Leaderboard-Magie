@@ -71,7 +71,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RotationX: 90
+    - _RotationX: -90
     - _RotationY: 0
     - _RotationZ: 0
     - _SmoothnessTextureChannel: 0
