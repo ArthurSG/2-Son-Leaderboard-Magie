@@ -6,6 +6,7 @@ public class VisualEffects : MonoBehaviour {
   private static VisualEffects instance;
   private ScreenShake screenShake; 
   private DirectionalScreenShake directionalScreenShake; 
+  private VignetteAfterTeleportation vignetteAfterTeleportation;
 
   void Awake() {
     SetSingletonInstance();
@@ -20,6 +21,9 @@ public class VisualEffects : MonoBehaviour {
     instance.directionalScreenShake.Shake(direction, intensity, frames);
   }
   
+  public static void VignetteAfterTeleportation() {
+    instance.vignetteAfterTeleportation.Vignette();
+  }
 
   void SetSingletonInstance() {
     if (instance != null)
@@ -30,5 +34,6 @@ public class VisualEffects : MonoBehaviour {
   void FetchComponents() {
     instance.screenShake = GetComponent<ScreenShake>();
     instance.directionalScreenShake = GetComponent<DirectionalScreenShake>();
+    instance.vignetteAfterTeleportation = GetComponent<VignetteAfterTeleportation>();
   }
 }

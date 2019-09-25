@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5497121691968849973}
   - component: {fileID: 5497121691968849972}
   - component: {fileID: 5497121691968849968}
+  - component: {fileID: 2263862680452581648}
   m_Layer: 0
   m_Name: Visual Effects
   m_TagString: Untagged
@@ -85,3 +86,19 @@ MonoBehaviour:
   intensity: 1
   waitTime: 2
   frames: 1
+--- !u!114 &2263862680452581648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5497121691968849978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622ec06160f978092a70542bb444b3e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minBloomValue: 0.1
+  maxBloomValue: 1
+  bloomTime: 0.2
+  volume: {fileID: 0}

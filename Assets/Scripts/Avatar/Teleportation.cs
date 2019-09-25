@@ -6,46 +6,33 @@ using UnityEngine;
 
 public class Teleportation : MonoBehaviour {
 
+  public GameObject teleportationTarget;
   public float apneaDuration = 3f;
   public int numberOfConsecutiveTeleportation;
   public float teleportationMaximumDistance;
+  public float shakeIntensite = 1f;
+  public int shakeFrames = 5;
 
   private Avatar avatarClass;
   private Rigidbody2D rb2D;
-
-  private Camera avatarCamera;
-  private DirectionalScreenShake screenShake;
-
   private List<Vector3> positionsSaved;
   private List<Timer> apneaTimers;
-
 
   void Start() {
     FetchComponents ();
   }
 
-  void FetchComponents (){
-  	positionsSaved = new List<Vector3>();
-    apneaTimers = new List<Timer>();
-
-    avatarClass = GetComponent<Avatar>();
-    rb2D = GetComponent<Rigidbody2D>();
-
-    avatarCamera = GetComponentInChildren<Camera>();
-    screenShake = avatarCamera.GetComponent<DirectionalScreenShake>();
-
+  public void MoveTeleportationTarget(Vector2 direction){
+    teleportationTarget.transform.position = FindTeleportPosition(direction); 
   }
 
-  void Update (){
-  }
-
-
-  public void Teleport(float aimX, float aimY) {
-
+  public void Teleport(Vector2 direction) {
     if (positionsSaved.Count < numberOfConsecutiveTeleportation) {
-        var position = transform.position;
+      VisualEffects.DirectionalScreenShake(direction,shakeIntensite,shakeFrames);
+      VisualEffects.VignetteAfterTeleportation();
+      var position = transform.position;
 
-        positionsSaved.Add(position);
+      positionsSaved.Add(position);
 
       SetNewApneaTimer();
 
@@ -54,10 +41,9 @@ public class Teleportation : MonoBehaviour {
       spirit.transform.position = position;
       spirit.SetActive(true);
 
-      transform.Translate(FindTeleportPosition(aimX, aimY) - position);
+      transform.Translate(teleportationTarget.transform.localPosition);
       GameManager.instance.avatar.isInTP = true;
 
-      screenShake.Shake(new Vector3 (aimX, aimY,0), 0.1f, 4);
     }
     else { //Can Cancel the Apnea Time and Rappel before the apneaTimer End();
       ApneaReset ();
@@ -73,8 +59,8 @@ public class Teleportation : MonoBehaviour {
     
   }
 
-  private Vector3 FindTeleportPosition(float aimX, float aimY) {
-    Vector2 direction = new Vector2(aimX, aimY).normalized;
+  private Vector3 FindTeleportPosition(Vector2 aimDirection) {
+    Vector2 direction = aimDirection.normalized;
 
     var posGo = transform.position;
 
@@ -153,5 +139,15 @@ public class Teleportation : MonoBehaviour {
     }
     positionsSaved.Clear();
     GameManager.instance.avatar.spirit.SetActive(false);
-    }
+  }
+
+  void FetchComponents (){
+  	positionsSaved = new List<Vector3>();
+    apneaTimers = new List<Timer>();
+
+    avatarClass = GetComponent<Avatar>();
+    rb2D = GetComponent<Rigidbody2D>();
+  }
+
+  
 }
