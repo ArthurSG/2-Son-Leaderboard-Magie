@@ -37,9 +37,7 @@ public class Teleportation : MonoBehaviour {
       SetNewApneaTimer();
 
 
-      GameObject spirit = GameManager.instance.avatar.spirit;
-      spirit.transform.position = position;
-      spirit.SetActive(true);
+      GameManager.instance.avatar.spirit.SetSpiritActive(true);
 
       transform.Translate(teleportationTarget.transform.localPosition);
       GameManager.instance.avatar.isInTP = true;
@@ -102,7 +100,7 @@ public class Teleportation : MonoBehaviour {
     }
     else
     {
-        GameManager.instance.avatar.spirit.SetActive(false);
+        GameManager.instance.avatar.spirit.SetSpiritActive(false);
     }
   }
 
@@ -138,7 +136,7 @@ public class Teleportation : MonoBehaviour {
       apneaTimers.Clear();
     }
     positionsSaved.Clear();
-    GameManager.instance.avatar.spirit.SetActive(false);
+    GameManager.instance.avatar.spirit.SetSpiritActive(false);
   }
 
   void FetchComponents (){
