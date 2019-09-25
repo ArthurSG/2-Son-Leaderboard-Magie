@@ -51,5 +51,10 @@ namespace AmplifyShaderEditor
 		{
 			AmplifyShaderEditorWindow.CreateNewTemplateShader( "003dfa9c16768d048b74f75c088119d8" );
 		}
+		[MenuItem( "Assets/Create/Amplify Shader/Templates/Legacy/Sprite Texture External", false, 85 )]
+		public static void ApplyTemplate9()
+		{
+			AmplifyShaderEditorWindow.CreateNewTemplateShader( "f36a4a3a878dbee4d9ec370f7fef72e0" );
+		}
 	}
 }
