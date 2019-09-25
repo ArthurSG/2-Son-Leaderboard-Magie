@@ -106,7 +106,7 @@ Shader /*ase_name*/"Hidden/Templates/Legacy/Sprite Texture External"/*end*/
 				//return shaderCol;
 				//fixed4 c = SampleSpriteTexture (IN.texcoord) * spriteCol;
 				fixed4 c = spriteCol * shaderCol;
-				//c.rgb *= spriteCol.a;
+				c.rgb *= spriteCol.a;
 				return c;
 			}
 		ENDCG
