@@ -5,7 +5,6 @@ using UnityEngine;
 public class Avatar : MonoBehaviour {
   public float vitesseMax;
   public GameObject spirit;
-  public GameObject teleportationTarget;
   public ParticleSystem HardWalkEffect;
 
   private bool bloqueDeplacement = false, isFacingRight = true;
@@ -63,12 +62,10 @@ public class Avatar : MonoBehaviour {
   private void Aim(float x, float y) {
     aimX = x;
     aimY = y;
-    MoveCursor(new Vector3(x,y,0));  
+    teleportComponent.MoveTeleportationTarget(new Vector2(x,y));
   }
 
-  private void MoveCursor(Vector3 newCursorDirection){
-    teleportationTarget.transform.localPosition = newCursorDirection.normalized * teleportComponent.teleportationMaximumDistance; 
-  }
+  
 
   // Called by ControllerListener events
   private void Interaction() {
@@ -81,7 +78,7 @@ public class Avatar : MonoBehaviour {
   }
 
   private void Teleportation(){
-    teleportComponent.Teleport(aimX, aimY);
+    teleportComponent.Teleport(new Vector2 (aimX, aimY));
   }
 
   public void AnimationRappel(){
