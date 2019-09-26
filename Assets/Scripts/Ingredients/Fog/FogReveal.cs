@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FogReveal : MonoBehaviour
 {
-
+    // DEPRECATED. Keeping for legacy support.
     public float revealSpeed = 1;
     private void OnTriggerEnter(Collider other)
     {
