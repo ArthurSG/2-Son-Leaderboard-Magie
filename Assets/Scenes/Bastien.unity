@@ -5100,7 +5100,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1941366393}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5269,16 +5269,6 @@ PrefabInstance:
       propertyPath: volume
       value: 
       objectReference: {fileID: 1669439121}
-    - target: {fileID: 2263862680452581648, guid: b297a4a4403d3af43a86e5e26fec0cd5,
-        type: 3}
-      propertyPath: minBloomValue
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2263862680452581648, guid: b297a4a4403d3af43a86e5e26fec0cd5,
-        type: 3}
-      propertyPath: vignetteTime
-      value: 0.2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b297a4a4403d3af43a86e5e26fec0cd5, type: 3}
 --- !u!1001 &9007706173935269661
