@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Avatar : MonoBehaviour {
   public float vitesseMax;
-  public GameObject spirit;
+  public Spirit spirit;
   public ParticleSystem HardWalkEffect;
 
   private bool bloqueDeplacement = false, isFacingRight = true;
@@ -94,7 +94,7 @@ public class Avatar : MonoBehaviour {
     rigid = GetComponent<Rigidbody2D>();
     animator = GetComponent<Animator>();
     teleportComponent = GetComponent<Teleportation>();
-    spirit = GameManager.instance.spirit;
+    spirit = GameManager.instance.spirit.GetComponent<Spirit>();
   }
 
   private void SetControls() {

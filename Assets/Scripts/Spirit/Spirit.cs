@@ -37,4 +37,19 @@ public class Spirit : MonoBehaviour
         transform.SetParent(null);
         gameObject.SetActive(false);
     }
+
+    public void SetSpiritActive(bool state)
+    {
+        if (state)
+        {
+            transform.position = GameManager.instance.avatar.transform.position;
+            SpiritLinkUpdate();
+            gameObject.SetActive(true);
+        }
+
+        else
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }

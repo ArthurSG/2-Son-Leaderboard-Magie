@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
     if (instance != null)
       print("/!\\ Two instances of GameManager.");
     instance = this;
+    TimerManager.Init();
   }
 
 }
