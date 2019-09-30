@@ -12,6 +12,7 @@ public class Avatar : MonoBehaviour {
   private Rigidbody2D rigid;
   private Animator animator;
   private Teleportation teleportComponent;
+  public int Keys;
 
   [HideInInspector] public bool isInTP;
   // Animator strings
@@ -110,5 +111,18 @@ public class Avatar : MonoBehaviour {
 
   private void LibererDeplacement(){
     bloqueDeplacement = false;
+  }
+
+  public void AddKey(){
+    Keys++;
+  }
+
+  public void SupprKey() {
+    if(Keys > 0)
+      Keys--;
+  }
+
+  public bool HasKey() {
+    return Keys > 0;
   }
 }
