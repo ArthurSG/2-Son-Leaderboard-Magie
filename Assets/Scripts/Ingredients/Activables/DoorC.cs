@@ -5,9 +5,9 @@ using UnityEngine;
 public class DoorC : MonoBehaviour
 {
   private void OnTriggerEnter2D(Collider2D other) {
-    if (other.gameObject.tag == "Player" && GameManager.instance.avatar.HasKey()) {
+    if (other.gameObject.tag == "Player" && GameManager.instance.avatar.HasKey()) 
       Open();
-    }
+    KeyHUD.ShowKeys();
   }
 
   private void Open(){

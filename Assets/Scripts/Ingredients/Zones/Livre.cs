@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Livre : MonoBehaviour
 {
-  public MenuManager manager;
+  private MenuManager manager;
   public MenuPage page;
 
   [SerializeField]
@@ -13,6 +13,10 @@ public class Livre : MonoBehaviour
 
   [SerializeField] [TextArea(3, 5)]
   private string Content;
+
+  private void Start() {
+    manager = FindObjectOfType<MenuManager>();
+  }
 
   private void OnTriggerEnter2D(Collider2D collision) {
     page.transform.GetChild(0).GetComponent<Text>().text = ID;

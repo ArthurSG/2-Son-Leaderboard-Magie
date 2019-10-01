@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Key : MonoBehaviour
 {
+  public MenuPage KeyPage;
   private void OnTriggerEnter2D(Collider2D collision) {
-    print("oui");
     if(collision.gameObject.tag == "Player"){
       GameManager.instance.avatar.AddKey();
+      KeyHUD.ShowKeys();
       Destroy(this.gameObject);
     }
   }
