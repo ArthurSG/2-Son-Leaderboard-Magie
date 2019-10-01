@@ -11,29 +11,42 @@ public class SoundManager : MonoBehaviour{
 	private int randomMusic;
 	private int randomTimeBetweenSongs;
 
+	private bool ready;
+	private int i;
+
 	private AudioSource source1;
 
   void Start(){
 
+  	ready = true;
   	FetchComponents();
+
+  	SongPlayer ();
   	 
   } 
 
   void SongPlayer (){
-
-  	randomTimeBetweenSongs = Random.Range(240,10000);
-  	randomMusic = Random.Range(0,5);
-
-  	source1.clip = musics[randomMusic];
-  	source1.Play((ulong)randomTimeBetweenSongs);
-
-  	Timer SongPlay = new Timer (randomTimeBetweenSongs, SongPlayer);
-  	SongPlay.Play();
-
-
+  	if (ready){
+  		randomTimeBetweenSongs = Random.Range(1000,10000);
+  		randomMusic = Random.Range(0,5);
+  	
+  		source1.clip = musics[randomMusic];
+  		source1.Play(20);
+  		ready = false;
+  	}
   }
 
-
+  void Update (){
+  	if (!ready){
+  		i ++;
+  		if (i >= randomTimeBetweenSongs){
+  			ready = true;
+  			i = 0;
+  			SongPlayer();			
+  		}
+  		
+  	}
+  }
 
   void FetchComponents(){
   	source1 = GetComponent<AudioSource>();
