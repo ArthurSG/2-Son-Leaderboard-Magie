@@ -115,11 +115,14 @@ public class Avatar : MonoBehaviour {
 
   public void AddKey(){
     Keys++;
+    KeyHUD.ShowKeys();
   }
 
   public void SupprKey() {
-    if(Keys > 0)
+    if (HasKey()) {
       Keys--;
+      KeyHUD.ShowKeys();
+    }
   }
 
   public bool HasKey() {
