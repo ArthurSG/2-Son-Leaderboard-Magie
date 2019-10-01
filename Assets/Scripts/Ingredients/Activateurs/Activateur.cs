@@ -16,7 +16,7 @@ public class Activateur : MonoBehaviour
           ActifUpdate();
   }
 
-  protected virtual void Activer() {
+  public virtual void Activer() {
     if (!actif) {
       actif = true;
       foreach (Activable act in activables)
@@ -24,7 +24,7 @@ public class Activateur : MonoBehaviour
     }
   }
 
-  protected virtual void Desactiver(){
+  public virtual void Desactiver(){
     if (actif) {
       actif = false;
       foreach (Activable act in activables)
