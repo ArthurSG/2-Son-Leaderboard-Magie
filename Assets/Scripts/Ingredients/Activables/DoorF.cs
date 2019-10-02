@@ -28,6 +28,6 @@ public class DoorF : Activable {
   }
 
   private void OnTriggerEnter2D(Collider2D collision) {
-    // SceneManager.LoadScene("Menu Principale");
+    SceneManager.LoadScene("Menu Principale");
   }
 }
