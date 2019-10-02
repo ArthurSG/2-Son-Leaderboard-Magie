@@ -6342,6 +6342,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 502428806, guid: c907f04da929bd0fea0cd9bd4356656b, type: 3}
       propertyPath: orthographic size
       value: 7.8
@@ -6555,6 +6556,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ba8896d99c248b2f8e528cfbbcedee3, type: 3}
+=======
+    - target: {fileID: 97887659931716002, guid: c907f04da929bd0fea0cd9bd4356656b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9a43bf115deb48149862823cde6d6a0a, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c907f04da929bd0fea0cd9bd4356656b, type: 3}
+>>>>>>> Stashed changes
 --- !u!1001 &5497121690998093404
 PrefabInstance:
   m_ObjectHideFlags: 0
