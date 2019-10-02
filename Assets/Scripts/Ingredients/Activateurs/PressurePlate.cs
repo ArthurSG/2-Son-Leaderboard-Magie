@@ -30,14 +30,14 @@ public class PressurePlate : Activateur {
       base.ActifUpdate();
   }
 
-  protected override void Activer()
+  public override void Activer()
   {
       base.Activer();
       timeBar.gameObject.SetActive(true);
       timeBar.value = 1;
   }
 
-  protected override void Desactiver()
+  public override void Desactiver()
   {
       base.Desactiver();
       timeBar.gameObject.SetActive(false);

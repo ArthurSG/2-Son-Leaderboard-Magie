@@ -13,6 +13,7 @@ public class Avatar : MonoBehaviour {
   private Animator animator;
   private Teleportation teleportComponent;
   public int Keys;
+  public int Cristals;
 
   [HideInInspector] public bool isInTP;
   // Animator strings
@@ -66,11 +67,12 @@ public class Avatar : MonoBehaviour {
     teleportComponent.MoveTeleportationTarget(new Vector2(x,y));
   }
 
-  
-
   // Called by ControllerListener events
   private void Interaction() {
-    print("Interaction");
+    foreach (Collider2D col in Physics2D.OverlapCircleAll(transform.position, 3f, LayerMask.GetMask("Floor", "Wall"))) {
+       if (col.gameObject.tag == "Interactable")
+        col.gameObject.GetComponent<Interactable>().Interact();
+    }
   }
 
   // Called by ControllerListener events
@@ -115,17 +117,33 @@ public class Avatar : MonoBehaviour {
 
   public void AddKey(){
     Keys++;
-    KeyHUD.ShowKeys();
+    CollectibleHUD.ShowOverlay();
   }
 
   public void SupprKey() {
     if (HasKey()) {
       Keys--;
-      KeyHUD.ShowKeys();
+      CollectibleHUD.ShowOverlay();
     }
   }
 
   public bool HasKey() {
     return Keys > 0;
+  }
+
+  public void AddCristal() {
+    Cristals++;
+    CollectibleHUD.ShowOverlay();
+  }
+
+  public void SupprCristal() {
+    if (HasCristal()) {
+      Cristals--;
+      CollectibleHUD.ShowOverlay();
+    }
+  }
+
+  public bool HasCristal() {
+    return Cristals > 0;
   }
 }
