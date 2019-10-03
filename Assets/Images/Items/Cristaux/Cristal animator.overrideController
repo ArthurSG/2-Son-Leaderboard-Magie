@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Cristal animator
+  m_Controller: {fileID: 9100000, guid: 04efe970575e50496904e05877b377bd, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: e94e94750aa0a2d37bdf9af9cb355749, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 01bbaded9551abc2387815a2f4a3686b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ba65ea4d071bab4beb9776d0440c0cb2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b1e2aadb973e91a26af4b0823c48d5f9, type: 2}
