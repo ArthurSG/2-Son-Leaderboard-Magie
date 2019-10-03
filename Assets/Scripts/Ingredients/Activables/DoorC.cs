@@ -9,9 +9,9 @@ public class DoorC : MonoBehaviour
       Open();
   }
 
-  private void Open(){
+  private void Open() {
     GameManager.instance.avatar.SupprKey();
-    foreach(Collider2D col in transform.GetComponentsInChildren<CircleCollider2D>())
+    foreach(Collider2D col in transform.GetComponentsInChildren<BoxCollider2D>())
       col.enabled = false;
   }
 }
