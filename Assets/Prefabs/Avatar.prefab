@@ -5142,7 +5142,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1724292514693693579}
-  - component: {fileID: 1941366396}
   m_Layer: 8
   m_Name: Teleportation Target
   m_TagString: Untagged
@@ -6137,15 +6136,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4b92dd69bc0e7049a3ae921fe2f4f0d, type: 3}
---- !u!198 &6924658371151733041 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6924658371714666759, guid: c4b92dd69bc0e7049a3ae921fe2f4f0d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1737748534}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4062149802923620949 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4062149803469736547, guid: c4b92dd69bc0e7049a3ae921fe2f4f0d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1737748534}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6924658371151733041 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6924658371714666759, guid: c4b92dd69bc0e7049a3ae921fe2f4f0d,
     type: 3}
   m_PrefabInstance: {fileID: 1737748534}
   m_PrefabAsset: {fileID: 0}

@@ -23,7 +23,7 @@ public class Teleportation : MonoBehaviour {
   }
 
   public void MoveTeleportationTarget(Vector2 direction){
-    teleportationTarget.transform.position = FindTeleportPosition(direction); 
+    teleportationTarget.transform.position = FindTeleportPosition(direction);
   }
 
   public void Teleport(Vector2 direction) {
@@ -84,6 +84,7 @@ public class Teleportation : MonoBehaviour {
         }
 
     }
+    
 
     return posGo; // Pas de position trouvée dans la range, on renvoie la pos actuelle de l'avatar
   }
