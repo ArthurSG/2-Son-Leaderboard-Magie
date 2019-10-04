@@ -4,16 +4,15 @@ using System.Linq;
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class Activateur : MonoBehaviour
-{
+public class Activateur : MonoBehaviour {
+  
   public List<Activable> activables = new List<Activable>();
   private List<Activable> activablesCheck = new List<Activable>(); //Used for inspector value update
   private bool actif;
 
-  protected virtual void Update()
-  {
-      if (actif)
-          ActifUpdate();
+  protected virtual void Update() {
+    if (actif)
+      ActifUpdate();
   }
 
   public virtual void Activer() {

@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Livre : MonoBehaviour
-{
+public class Livre : MonoBehaviour {
   private MenuManager manager;
   private Animator animator;
   public MenuPage page;
@@ -15,9 +14,9 @@ public class Livre : MonoBehaviour
   [SerializeField] [TextArea(3, 5)]
   private string Content;
 
-  private void Start() {
-    manager = FindObjectOfType<MenuManager>();
-    animator = FindObjectOfType<Animator>();
+  void Start() {
+    manager = MenuManager.instance;
+    animator = GetComponent<Animator>();
   }
 
   private void OnTriggerEnter2D(Collider2D collision) {
