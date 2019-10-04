@@ -15,6 +15,10 @@ public class FogCluster : MonoBehaviour {
     HideCluster();
   }
 
+  void Update(){
+    print(isShown);
+  }
+
   private IEnumerator RevealSpritesInCluster() {
     float timer = 0;
 
@@ -47,12 +51,13 @@ public class FogCluster : MonoBehaviour {
 
   private void HideCluster() {
     foreach (SpriteFog spriteFog in spritesInCluster) {
-      spriteFog.spriteRenderer.color = Color.black;
+      spriteFog.spriteRenderer.color = new Color (0.09412f,0.07843f,0.09412f);
     }
   }
 
   private void OnTriggerEnter2D(Collider2D other) {
     if (other.CompareTag("Player") && !isShown) {
+      print ("hey");
       RevealLevel();
     }
   }
