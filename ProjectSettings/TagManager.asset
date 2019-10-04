@@ -44,12 +44,15 @@ TagManager:
   - name: Ground
     uniqueID: 1450066733
     locked: 0
-  - name: Items
+  - name: Murs avant
+    uniqueID: 522590715
+    locked: 0
+  - name: Above ground
     uniqueID: 816378275
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Above All
-    uniqueID: 926138809
+  - name: Mur dessus
+    uniqueID: 720147791
     locked: 0

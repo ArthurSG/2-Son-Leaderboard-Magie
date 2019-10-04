@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2406532527720466986}
   - component: {fileID: 8624511903217106528}
+  - component: {fileID: 6599589731020784866}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -80,6 +81,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6599589731020784866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120269501143626572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30c4a12b55b04484c9cd1ec52a11b5e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 8624511903217106528}
+  updated: 0
 --- !u!1 &817855816592154201
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,6 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4798568866567987014}
   - component: {fileID: 1534279779418491698}
+  - component: {fileID: 213109074544744359}
   m_Layer: 0
   m_Name: shadow
   m_TagString: Untagged
@@ -160,6 +176,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &213109074544744359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817855816592154201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30c4a12b55b04484c9cd1ec52a11b5e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 1534279779418491698}
+  updated: 0
 --- !u!1 &9152099925140965682
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +309,7 @@ PrefabInstance:
     - target: {fileID: 4158892132272909364, guid: 1dc9fe3da011888cca851bd281ecc704,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.31
       objectReference: {fileID: 0}
     - target: {fileID: 4158892132272909364, guid: 1dc9fe3da011888cca851bd281ecc704,
         type: 3}
@@ -330,6 +360,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2544927614290101017, guid: 1dc9fe3da011888cca851bd281ecc704,
+        type: 3}
+      propertyPath: updated
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dc9fe3da011888cca851bd281ecc704, type: 3}
