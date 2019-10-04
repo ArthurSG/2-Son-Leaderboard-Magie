@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Door pressure side animator
+  m_Controller: {fileID: 9100000, guid: a81a398be7c24dc8981741b2d38ac160, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 8c6a5b8198a099717ab4e84ea732eb05, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 396b0881b70025f3cb427fffa5dc3e6d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 630df64d66ee77edaafd31710796663a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f7b7add90e14c3279a89229d71721b7d, type: 2}

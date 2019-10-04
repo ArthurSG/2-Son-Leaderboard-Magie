@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DoorP : Activable {
   private Collider2D col;
+  private Animator animator;
 
-  // Start is called before the first frame update
   new void Start() {
     base.Start();
     FetchComponents();
@@ -13,16 +13,19 @@ public class DoorP : Activable {
 
   protected override void SetEtat() {
     if (NombreSourcesRequise > 0) {
-      col.isTrigger = false;
-      GetComponent<SpriteRenderer>().color = Color.red;
+      animator.SetBool("Opened", false);
+      // col.isTrigger = false;
+      // GetComponent<SpriteRenderer>().color = Color.red;
     }
     else {
-      col.isTrigger = true;
-      GetComponent<SpriteRenderer>().color = Color.green;
+      animator.SetBool("Opened", true);
+      // col.isTrigger = true;
+      // GetComponent<SpriteRenderer>().color = Color.green;
     }
   }
 
   void FetchComponents() {
-    col = GetComponent<Collider2D>();
+    // col = GetComponent<Collider2D>();
+    animator = GetComponent<Animator>();
   }
 }
