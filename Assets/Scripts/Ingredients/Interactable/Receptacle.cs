@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Receptacle : Interactable {
-  private bool containCristal;
+  [SerializeField] private bool containCristal;
+  private Activateur activateur;
+  private Animator animator;
+
   private void Start() {
+    activateur = GetComponent<Activateur>();
+    animator = GetComponent<Animator>();
   }
 
   public bool isActive(){
@@ -20,19 +25,20 @@ public class Receptacle : Interactable {
   }
 
   private void Charger(){
-    if (GameManager.instance.avatar.HasCristal()) {
-      containCristal = true;
-      GameManager.instance.avatar.SupprCristal();
-      GetComponent<Activateur>().Activer();
-      GetComponent<SpriteRenderer>().color = Color.green;
-    }
+    if (!GameManager.instance.avatar.HasCristal())
+      return;
+    containCristal = true;
+    GameManager.instance.avatar.SupprCristal();
+    animator.SetBool("Active", true);
+    if (activateur != null)
+      activateur.Activer();
   }
 
   private void Decharger(){
-      containCristal = false;
-      GameManager.instance.avatar.AddCristal();
-    GetComponent<Activateur>().Desactiver();
-
-    GetComponent<SpriteRenderer>().color = Color.red;
+    containCristal = false;
+    GameManager.instance.avatar.AddCristal();
+    animator.SetBool("Active", false);
+    if (activateur != null)
+      activateur.Desactiver();
   }
 }
