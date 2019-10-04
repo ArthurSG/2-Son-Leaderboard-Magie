@@ -18,11 +18,10 @@ public class Receptacle : Interactable {
   }
 
   override public void Interact(){
-    if (containCristal) {
+    if (containCristal)
       Decharger();
-    }
-    else { Charger(); 
-    }
+    else 
+      Charger(); 
   }
 
   private void Charger(){

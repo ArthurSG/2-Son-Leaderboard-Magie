@@ -4,6 +4,7 @@
     {
         _MainTex ("Texture", 2D) = "white" {}
         _SecondaryTex ("Texture blend", 2D) = "white" {}
+        _Color ("Color Tint", Color) = (1,1,1,1)
         _Range ("image blend", Range(0,1)) = 0
     }
     SubShader
@@ -41,6 +42,7 @@
 
             sampler2D _MainTex;
             sampler2D _SecondaryTex;
+            float4 _Color;
             float4 _MainTex_ST;
             Float _Range;
 
@@ -68,7 +70,8 @@
                 // return color;
                 float2 displace = tex2D(_SecondaryTex, i.uv + _Time.x).xy;
                 displace = ((displace * 2) - 1) * _Range;
-                return tex2D(_MainTex, i.uv + displace);
+                // float4 color = tex2D(_MainTex, i.uv + displace) 
+                return tex2D(_MainTex, i.uv + displace) * _Color;
 
             }
             ENDCG
