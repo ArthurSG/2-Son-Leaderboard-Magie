@@ -10,6 +10,7 @@ public class Receptacle : Interactable {
   private void Start() {
     activateur = GetComponent<Activateur>();
     animator = GetComponent<Animator>();
+    animator.SetBool("Active", containCristal);
   }
 
   public bool isActive(){
